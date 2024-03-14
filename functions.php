@@ -174,3 +174,20 @@ require get_template_directory() . '/inc/template-functions.php';
 // if ( defined( 'JETPACK__VERSION' ) ) {
 // 	require get_template_directory() . '/inc/jetpack.php';
 // }
+
+
+	
+// Prilagođena funkcija za generiranje HTML-a pretraživačkog obrasca
+function custom_search_form($form) {
+	$form = '<form class="site-header__search-form" role="search" method="get" id="search-form" action="' . home_url( '/' ) . '" >
+	<div><label class="screen-reader-text" for="s">' . __( 'Search for:' ) . '</label>
+	<input type="text" class="site-header__search-input js-search-field" value="' . get_search_query() . '" name="s" id="s" placeholder="' . esc_attr__( 'Pretraga...' ) . '" />
+	<button type="submit" class="site-header__search-submit" id="search-submit"><span class="font-search"></span></button>
+	</div>
+	</form>';
+
+	return $form;
+}
+
+// Dodavanje prilagođene funkcije kao filter za get_search_form
+add_filter('get_search_form', 'custom_search_form');

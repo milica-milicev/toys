@@ -167,57 +167,84 @@
 		padding-bottom: 0;
 	}
 
-	.search-field {
-		border-radius: 0;
-		border: none;
-		border-bottom: 1px solid $white;
-		width: 100%;
-		max-width: 100%;
-		margin-bottom: 0;
-		margin-top: 0;
-		padding: 0 70px 7px 0;
-		font-size: 14px;
-		color: $white;
+	// .search-field {
+	// 	border-radius: 0;
+	// 	border: none;
+	// 	border-bottom: 1px solid $white;
+	// 	width: 100%;
+	// 	max-width: 100%;
+	// 	margin-bottom: 0;
+	// 	margin-top: 0;
+	// 	padding: 0 70px 7px 0;
+	// 	font-size: 14px;
+	// 	color: $white;
 
-		&:focus,
-		&:active {
-			border: none;
-			border-bottom: 1px solid $white;
-		}
+	// 	&:focus,
+	// 	&:active {
+	// 		border: none;
+	// 		border-bottom: 1px solid $white;
+	// 	}
 
-		&::placeholder {
-			color: $white;
-			font-size: 14px;
-		}
-	}
+	// 	&::placeholder {
+	// 		color: $white;
+	// 		font-size: 14px;
+	// 	}
+	// }
 
-	.search-form {
-		position: relative;
-	}
+	// .search-form {
+	// 	position: relative;
+	// }
 
-	.search-submit {
-		background-color: $orange;
-		border: none;
-		color: $white;
-		position: absolute;
-		right: 0;
-		bottom: 6px;
-		font-size: 13px;
-		padding: 4px 10px;
-		border-radius: 5px;
-	}
+	// .search-submit {
+	// 	background-color: $orange;
+	// 	border: none;
+	// 	color: $white;
+	// 	position: absolute;
+	// 	right: 0;
+	// 	bottom: 6px;
+	// 	font-size: 13px;
+	// 	padding: 4px 10px;
+	// 	border-radius: 5px;
+	// }
 
 	@include mq($md) {
 		top: 71px;
 	}
 }
 
+.site-header__search-form {
+	position: relative;
+}
+
+.site-header__search-input[type='text'] {
+	margin-bottom: 0;
+	margin-top: 0;
+
+	&:focus,
+	&:active {
+		border-color: $white;
+		color: $white;
+	}
+}
+
+.site-header__search-submit {
+	background: $orange;
+	color: $white;
+    border: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 51px;
+    height: 100%;
+    border-radius: 10px;
+}
+
 .site-header__search-close-btn {
 	border: none;
 	background-color: transparent;
 	position: absolute;
-	right: 5px;
-	top: 13px;
-	font-size: 22px;
+	right: 4px;
+	top: 20px;
+	font-size: 23px;
 	color: $white;
 }

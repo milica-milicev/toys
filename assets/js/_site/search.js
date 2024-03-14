@@ -7,7 +7,7 @@ const Search = {
 	init: function () {
 		const searchBtn = document.querySelector('.js-search-btn');
 		const searchForm = document.querySelector('.js-search-form');
-		const searchFormInput = document.querySelector('.search-field');
+		const searchFormInput = document.querySelector('.js-search-field');
 		const searchFormCloseBtn = document.querySelector('.js-close-search');
 		const navigation = document.querySelector('.js-navigation');
 		const menuBtn = document.querySelector('.js-menu-btn');
