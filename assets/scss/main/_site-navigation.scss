@@ -1,0 +1,18 @@
+.main-navigation__menu {
+	display: flex;
+	align-items: center;
+
+	li {
+		margin-right: 40px;
+
+		&:last-of-type {
+			margin-right: 0;
+		}
+
+		a {
+			color: $black;
+			font-weight: bold;
+			font-size: 16px;
+		}
+	}
+}

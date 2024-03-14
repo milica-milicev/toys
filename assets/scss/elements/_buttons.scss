@@ -1,0 +1,108 @@
+/*--------------------------------------------------------------
+## Buttons
+--------------------------------------------------------------*/
+// .btn,
+// input[type='submit'] {
+// 	@include clamp-font-size(13, 15);
+// 	font-family: $font-main;
+// 	background-color: $black;
+// 	color: $white;
+// 	padding: 12px 25px;
+// 	transition: $dur $ease;
+// 	font-weight: 700;
+// 	text-transform: uppercase;
+// 	min-width: 200px;
+// 	text-align: center;
+// 	display: inline-block;
+
+// 	@include hover {
+// 		background-color: $white;
+// 		color: $black;
+// 	}
+// }
+
+.btn {
+	display: inline-block;
+	@include clamp-font-size(12, 16);
+	background-color: $robin-blue;
+	color: $white;
+	transition: $dur $ease;
+	font-weight: bold;
+	line-height: 1;
+	border-radius: 10px;
+	padding: 14px 23px;
+	border: 2px solid transparent;
+	z-index: 1;
+	position: relative;
+	width: fit-content;
+
+	@include hover {
+		color: $robin-blue;
+		border: 2px solid $robin-blue;
+		background-color: transparent;
+	}
+
+	@include mq($md) {
+		padding: 13px 17px;
+	}
+}
+
+.btn--sec {
+	background-color: $orange;
+	color: $white;
+	@include hover {
+		color: $orange;
+		border: 2px solid $orange;
+		background-color: transparent;
+	}
+}
+
+.btn--orange {
+	background-color: transparent;
+	color: $orange;
+
+	&::after {
+	  @include font-styles;
+	  content: font-char(arrow-right);
+	  margin-left: 5px;
+	  font-size: 9px;
+	  transition: $dur $ease;
+	  display: inline-block;
+	}
+
+	@include hover {
+		border-color: $orange;
+		color: $orange;
+	}
+}
+
+.btn--white {
+	background-color: $white;
+	color: $black;
+
+	@include hover {
+		border: 2px solid transparent;
+		color: $white;
+		background-color: $black;
+	}
+}
+
+.link {
+	color: $orange;
+	font-weight: bold;
+	@include clamp-font-size(14, 16);
+	transition: $dur $ease;
+
+	&::after {
+	  @include font-styles;
+	  content: font-char(arrow-right);
+	  margin-left: 5px;
+	  font-size: 9px;
+	  display: inline-block;
+	  font-weight: bold;
+	}
+
+	@include hover {
+		color: $black;
+	}
+}

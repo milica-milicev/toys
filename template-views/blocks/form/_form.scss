@@ -1,0 +1,69 @@
+.form {
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+	height: calc(100vh - 121px);
+	margin: 0 30px;
+	border-radius: 10px;
+	display: flex;
+	align-items: center;
+}
+
+.form-box {
+	display: flex;
+	flex-wrap: wrap;
+	max-width: 920px;
+	margin: 0 auto;
+	border-radius: 10px;
+	overflow: hidden;
+}
+
+.form-box__left {
+	background-color: $fire-bush;
+	padding: 50px 30px;
+	flex: 60%;
+	max-width: 60%;
+}
+
+.form-box__right {
+	flex: 40%;
+	max-width: 40%;
+	background-color: $white;
+	padding: 0 75px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+.form-box__right-phone {
+	display: flex;
+	align-items: center;
+	grid-gap: 15px;
+	margin-bottom: 20px;
+}
+
+.form-box__right-phone-number {
+	a {
+		display: block;
+	}
+}
+
+.form-box__right-email,
+.form-box__right-media {
+	display: flex;
+	align-items: center;
+	grid-gap: 15px;
+}
+
+.form-box__right-email {
+	margin-bottom: 30px;
+}
+
+.form-box__right-media-instagram {
+	@include font(insta);
+}
+
+.form-box__right-media-facebook {
+	@include font(face);
+}
+

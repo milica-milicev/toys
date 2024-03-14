@@ -1,0 +1,99 @@
+/*--------------------------------------------------------------
+## Footer
+--------------------------------------------------------------*/
+.site-footer {
+	background-color: $riptide;
+	padding: 80px 0 60px;
+
+	@include mq($md) {
+       padding: 45px 0;
+    }
+}
+
+.footer-container {
+	display: flex;
+	justify-content: space-between;
+
+	@include mq($md) {
+       display: block;
+    }
+}
+
+.footer-item {
+	flex: 31.3%;
+	max-width: 31.3%;
+
+	h5 {
+		@include clamp-font-size(14, 17);
+		font-weight: bold;
+		text-transform: uppercase;
+		margin-bottom: 5px;
+	}
+
+	ul {
+		li {
+			padding-bottom: 7px;
+
+			a {
+				text-decoration: underline;
+				transition: $dur $ease;
+
+				@include hover {
+					opacity: .5;
+				}
+			}
+		}
+	}
+
+	@include mq($md) {
+       flex: 100%;
+	   max-width: 100%;
+	   margin-bottom: 20px;
+    }
+}
+
+.footer-item__mail {
+	transition: $dur $ease;
+
+	@include hover {
+		opacity: .5;
+	}
+}
+
+.footer-item-media {
+	display: flex;
+	align-items: center;
+	grid-gap: 10px;
+	margin-top: 15px;
+}
+
+.footer-item-media__face {
+	@include font(face);
+	transition: $dur $ease;
+
+	@include hover {
+		opacity: .5;
+	}
+}
+
+.footer-item-medai-insta {
+	@include font(insta);
+	transition: $dur $ease;
+
+	@include hover {
+		opacity: .5;
+	}
+}
+
+.footer-right {
+	font-size: 12px;
+	max-width: 280px;
+}
+
+.site-footer__copyright {
+	font-family: $font-main;
+	font-weight: 600;
+	font-size: 0.875rem;
+	line-height: 1.35;
+	color: $white;
+}

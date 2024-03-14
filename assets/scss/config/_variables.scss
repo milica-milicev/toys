@@ -1,0 +1,53 @@
+/*--------------------------------------------------------------
+## Main Variables
+--------------------------------------------------------------*/
+// Fonts
+$font-default: 'Nunito';
+
+$font-main: $font-default;
+
+$site-fonts: (
+	'font-main': $font-main,
+) !default;
+
+// Colors
+$white: #fff;
+$black: #333;
+$orange: #f96419;
+$white-smoke: #f0f0f0;
+$eastern-blue: #0a869b;
+$cupid: #f8b1c1;
+$riptide: #79dbc9;
+$robin-blue: #17c5ce;
+$grey: #888;
+$fire-bush: #eaa347;
+
+$site-colors: (
+	'white': $white,
+	'black': $black,
+	'orange': $orange,
+	'white-smoke': $white-smoke,
+	'eastern-blue': $eastern-blue,
+	'cupid': $cupid,
+	'riptide': $riptide,
+	'robin-blue': $robin-blue,
+	'grey': $grey,
+) !default;
+
+// Transitions
+$dur: 350ms;
+$ease: ease;
+
+/*--------------------------------------------------------------
+## Breakpoint Variables
+--------------------------------------------------------------*/
+$xs: 400px;
+$smx: 500px;
+$sm: 575px;
+$md: 767px;
+$lg: 991px;
+$tablet: 1024px;
+$xs: 1100px;
+$xl: 1199px;
+$xxl: 1399px;
+$xxxl: 1599px;

@@ -1,0 +1,105 @@
+.hero {
+	background-color: $white-smoke;
+	margin: 0 30px;
+	border-radius: 10px;
+
+	@include mq($md) {
+       margin: 0 15px;
+	   padding-top: 60px;
+    }
+
+	@include mq($sm) {
+		padding-top: 40px;
+	 }
+}
+
+.hero__container {
+	display: flex;
+
+	@include mq($md) {
+       display: block;
+    }
+}
+
+.hero__content {
+	max-width: 470px;
+	padding: 60px 0;
+	align-self: center;
+
+	@include mq($md) {
+       max-width: 100%;
+	   text-align: center;
+	   padding: 0;
+	   max-width: 400px;
+	   margin: 0 auto;
+    }
+}
+
+.hero__content-title {
+	@include clamp-font-size(22, 38);
+	font-weight: 900;
+	line-height: 1.25;
+	margin-bottom: 25px;
+
+	span {
+		color: $robin-blue;
+	}
+}
+
+.hero__content-desc {
+	@include clamp-font-size(14, 18);
+	line-height: 1.4;
+	margin-bottom: 30px;
+}
+
+.hero__main-img {
+	position: relative;
+	align-self: flex-end;
+
+	@include mq($md) {
+		max-width: 450px;
+		margin: 0 auto;
+	}
+}
+
+.hero__main-info {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	background-color: rgba($white, 0.85);
+	box-shadow: 2px 2px 8px rgba($black, 0.3);
+	padding: 10px 20px;
+	@include clamp-font-size(14, 16);
+	border-radius: 10px;
+	display: block;
+	width: 100%;
+	max-width: 220px;
+	padding-right: 40px;
+
+	&::after {
+		@include font-styles;
+		content: font-char(arrow-right);
+		margin-left: 5px;
+		font-size: 12px;
+		transition: $dur $ease;
+		display: inline-block;
+		position: absolute;
+		right: 10px;
+		top: 50%;
+		transform: translateY(-50%);
+		color: $black;
+	}
+
+	span {
+		display: block;
+		color: $orange;
+		font-weight: bold;
+	}
+
+	@include mq($md) {
+		top: auto;
+		bottom: 27px;
+		transform: translate(-50%, 0);
+	}
+}

@@ -1,0 +1,92 @@
+.recente-posts {
+	padding: 60px 0;
+	background-color: $white-smoke;
+	margin: 0 30px 40px;
+	border-radius: 10px;
+
+	@include mq($md) {
+        padding: 40px 0;
+		margin: 0 15px 20px;
+    }
+}
+
+.recente-posts__container {
+	margin-top: 80px;
+	display: flex;
+	justify-content: space-between;
+	margin: 0 -10px;
+
+	@include mq($md) {
+        display: block;
+		margin: 0;
+    }
+}
+
+.recente-post__item {
+	flex: 33.3%;
+	max-width: 33.3%;
+	transition: $dur $ease;
+	margin: 0 10px;
+
+	@include hover {
+		opacity: .7;
+	}
+
+	@include mq($md) {
+        flex: 100%;
+		max-width: 400px;
+		margin: 0 auto 40px;
+    }
+}
+
+.recente-post__item-image {
+	position: relative;
+
+	img {
+		border-radius: 10px
+	}
+}
+
+.recente-post__item-image-tag {
+	position: absolute;
+	left: 3%;
+	bottom: 5%;
+	padding: 5px 10px;
+	background-color: $eastern-blue;
+	text-transform: uppercase;
+	color: $white;
+	border-radius: 10px;
+	font-size: 12px;
+}
+
+.recente-post__item-title {
+	@include clamp-font-size(18, 23);
+	font-weight: bold;
+	margin: 25px 0;
+
+	@include mq($md) {
+        margin: 15px 0 10px;
+    }
+}
+
+.recente-post__item-desc {
+	@include clamp-font-size(14, 15);
+	color: $grey;
+}
+
+.recente-post__item-btn {
+	margin-top: 22px;
+
+	.btn {
+		padding: 10px 15px;
+	}
+}
+
+.recente-posts__btn {
+	margin-top: 70px;
+	text-align: center;
+
+	@include mq($md) {
+        margin-top: 20px;
+    }
+}

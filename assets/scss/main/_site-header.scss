@@ -1,0 +1,49 @@
+/*--------------------------------------------------------------
+## Header
+--------------------------------------------------------------*/
+.site-header {
+	display: none;
+	padding: 15px 0;
+	position: relative;
+	z-index: 999;
+	width: 100%;
+	top: 0;
+	transition: $dur $ease;
+	background-color: transparent;
+	border-bottom: 1px solid transparent;
+
+	&.is-sticky {
+		background-color: $white;
+		border-bottom: 1px solid $black;
+	}
+}
+
+.site-header__container {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.site-header__nav {
+	display: flex;
+	align-items: center;
+}
+
+.site-header__logo {
+	display: block;
+	max-width: 150px;
+	width: 100%;
+	padding-bottom: 8px;
+
+	img {
+		width: 100%;
+	}
+
+	@include mq($sm + 1, min) {
+		max-width: 180px;
+	}
+
+	@include mq($lg + 1, min) {
+		max-width: 222px;
+	}
+}

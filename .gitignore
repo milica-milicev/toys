@@ -1,0 +1,7 @@
+# ignore ALL files
+*.css
+*.map
+
+# ignore ALL files in ANY directory
+node_modules
+dist
