@@ -1,3 +1,27 @@
+.main-navigation {
+	@include mq($lg) {
+		opacity: 0;
+		visibility: hidden;
+		transition: $dur $ease;
+		position: absolute;
+		left: 15px;
+		top: 82px;
+		background-color: $riptide;
+		padding: 20px 30px;
+		width: calc(100% - 30px);
+		border-radius: 10px;
+
+		&.is-active {
+			opacity: 1;
+			visibility: visible;
+		}
+	}
+
+	@include mq($md) {
+		top: 71px;
+	}
+}
+
 .main-navigation__menu {
 	display: flex;
 	align-items: center;
@@ -13,6 +37,24 @@
 			color: $black;
 			font-weight: bold;
 			font-size: 16px;
+		}
+	}
+
+	@include mq($lg) {
+		display: block;
+		text-align: center;
+
+		li {
+			margin-right: 0;
+			margin-bottom: 10px;
+
+			&:last-of-type {
+				margin-bottom: 0;
+			}
+	
+			a {
+				color: $white;
+			}
 		}
 	}
 }

@@ -18,9 +18,10 @@ html {
 
 .container {
 	max-width: 1300px;
-	width: clamp(320px, 90%, 1300px);
+	width: clamp(320px, 90vw, 1300px);
 	padding: 0 15px;
 	margin: 0 auto;
+	position: relative;
 
 	@include mq($md) {
         width: 100%;
@@ -29,4 +30,12 @@ html {
 
 .container--sm {
 	max-width: 960px;
+}
+
+.site {
+	padding-top: 91px;
+
+	@include mq($md) {
+		padding-top: 81px;
+	}
 }

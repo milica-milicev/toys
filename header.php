@@ -38,25 +38,37 @@
 					</a>
 				</div>
 				<div class="site-header__nav">
-					<nav id="site-navigation" class="main-navigation">
-						<div class="main-navigation__menu-wrap js-navigation">
-							<?php
-								wp_nav_menu(
-									array(
-										'theme_location' => 'menu-1',
-										'menu_id'        => 'primary-menu',
-										'menu_class'     => 'main-navigation__menu',
-									)
-								);
-							?>
-						</div>
-						<button type="button" class="main-navigation__toggle js-menu-btn">
-							<span class="main-navigation__toggle-stripe"></span>
-							<span class="main-navigation__toggle-stripe"></span>
-							<span class="main-navigation__toggle-stripe"></span>
-						</button>
+					<nav id="site-navigation" class="main-navigation js-navigation">
+						<?php
+							wp_nav_menu(
+								array(
+									'theme_location' => 'menu-1',
+									'menu_id'        => 'primary-menu',
+									'menu_class'     => 'main-navigation__menu',
+								)
+							);
+						?>
 					</nav><!-- #site-navigation -->
 				</div>
+				<div class="site-header__actions">
+					<ul class="site-header__actions-list">
+						<li class="site-header__actions-item">
+							<button class="site-header__actions-link site-header__actions-link--search js-search-btn"><span class="font-search"></span></button>
+						</li>
+						<li class="site-header__actions-item">
+							<button class="site-header__actions-link"><span class="font-cart"></span></button>
+						</li>
+					</ul>
+					<button type="button" class="site-header__navigation-toggle js-menu-btn">
+						<span class="site-header__navigation-toggle-stripe"></span>
+						<span class="site-header__navigation-toggle-stripe"></span>
+						<span class="site-header__navigation-toggle-stripe"></span>
+					</button>
+				</div>
+			</div>
+			<div class="site-header__search js-search-form">
+				<?php get_search_form(); ?>
+				<button class="site-header__search-close-btn js-close-search"><span class="font-close"></span></button>
 			</div>
 		</div>
 	</header>

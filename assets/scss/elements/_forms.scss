@@ -43,6 +43,7 @@ textarea {
 	background-color: transparent;
 	border-radius: 10px;
 	margin-bottom: 20px;
+	box-sizing: border-box;
 
 	&:focus,
 	&:active {
