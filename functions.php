@@ -182,7 +182,7 @@ function custom_search_form($form) {
 	$form = '<form class="site-header__search-form" role="search" method="get" id="search-form" action="' . home_url( '/' ) . '" >
 	<div><label class="screen-reader-text" for="s">' . __( 'Search for:' ) . '</label>
 	<input type="text" class="site-header__search-input js-search-field" value="' . get_search_query() . '" name="s" id="s" placeholder="' . esc_attr__( 'Pretraga...' ) . '" />
-	<button type="submit" class="site-header__search-submit" id="search-submit"><span class="font-search"></span></button>
+	<button type="submit" class="site-header__search-submit" id="search-submit">Pretraži</button>
 	</div>
 	</form>';
 

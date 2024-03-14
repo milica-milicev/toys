@@ -154,7 +154,7 @@
 	left: 15px;
 	right: 15px;
 	background-color: $riptide;
-	padding: 15px 40px 15px 15px;
+	padding: 15px 41px 15px 15px;
 	width: calc(100% - 30px);
 	border-radius: 10px;
 
@@ -166,46 +166,6 @@
 		margin-bottom: 0;
 		padding-bottom: 0;
 	}
-
-	// .search-field {
-	// 	border-radius: 0;
-	// 	border: none;
-	// 	border-bottom: 1px solid $white;
-	// 	width: 100%;
-	// 	max-width: 100%;
-	// 	margin-bottom: 0;
-	// 	margin-top: 0;
-	// 	padding: 0 70px 7px 0;
-	// 	font-size: 14px;
-	// 	color: $white;
-
-	// 	&:focus,
-	// 	&:active {
-	// 		border: none;
-	// 		border-bottom: 1px solid $white;
-	// 	}
-
-	// 	&::placeholder {
-	// 		color: $white;
-	// 		font-size: 14px;
-	// 	}
-	// }
-
-	// .search-form {
-	// 	position: relative;
-	// }
-
-	// .search-submit {
-	// 	background-color: $orange;
-	// 	border: none;
-	// 	color: $white;
-	// 	position: absolute;
-	// 	right: 0;
-	// 	bottom: 6px;
-	// 	font-size: 13px;
-	// 	padding: 4px 10px;
-	// 	border-radius: 5px;
-	// }
 
 	@include mq($md) {
 		top: 71px;
@@ -219,6 +179,9 @@
 .site-header__search-input[type='text'] {
 	margin-bottom: 0;
 	margin-top: 0;
+	padding: 8px 83px 8px 13px;
+	font-size: 14px;
+	color: $white;
 
 	&:focus,
 	&:active {
@@ -234,9 +197,10 @@
     position: absolute;
     right: 0;
     top: 0;
-    width: 51px;
+    padding: 0 13px;
     height: 100%;
     border-radius: 10px;
+    font-size: 14px;
 }
 
 .site-header__search-close-btn {
@@ -244,7 +208,7 @@
 	background-color: transparent;
 	position: absolute;
 	right: 4px;
-	top: 20px;
+	top: 17px;
 	font-size: 23px;
 	color: $white;
 }
