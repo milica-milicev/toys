@@ -175,9 +175,18 @@ require get_template_directory() . '/inc/template-functions.php';
 // 	require get_template_directory() . '/inc/jetpack.php';
 // }
 
+/**
+ * Add woocommerce support in the theme
+ */
+function nm_theme_add_woocommerce_support() {
+    add_theme_support( 'woocommerce' );
+}
 
-	
-// Prilagođena funkcija za generiranje HTML-a pretraživačkog obrasca
+add_action( 'after_setup_theme', 'nm_theme_add_woocommerce_support' );
+
+/**
+ * Custom search form
+ */
 function custom_search_form($form) {
 	$form = '<form class="site-header__search-form" role="search" method="get" id="search-form" action="' . home_url( '/' ) . '" >
 	<div><label class="screen-reader-text" for="s">' . __( 'Search for:' ) . '</label>
@@ -189,5 +198,59 @@ function custom_search_form($form) {
 	return $form;
 }
 
-// Dodavanje prilagođene funkcije kao filter za get_search_form
 add_filter('get_search_form', 'custom_search_form');
+
+
+/**
+ * Filter products
+ */
+add_action('wp_enqueue_scripts', 'custom_enqueue_scripts');
+function custom_enqueue_scripts() {
+    // Dodajemo JavaScript fajl
+    wp_enqueue_script('custom-script', get_template_directory_uri() . '/js/custom.js', array('jquery'), '1.0', true);
+
+    // Definisanje URL-a do admin-ajax.php
+    wp_localize_script('custom-script', 'ajax_object', array('ajax_url' => admin_url('admin-ajax.php')));
+}
+
+// Funkcija za filtriranje proizvoda
+add_action('wp_ajax_filter_products', 'filter_products');
+add_action('wp_ajax_nopriv_filter_products', 'filter_products'); // Omogućava neautoriziranim korisnicima pristup funkciji
+function filter_products() {
+    // Provjera da li je poslata kategorija
+    if (isset($_GET['category'])) {
+        $category = $_GET['category'];
+
+        // Postavljanje argumenata za dohvaćanje proizvoda
+        $args = array(
+            'post_type' => 'product',
+            'posts_per_page' => -1,
+            'tax_query' => array(
+                array(
+                    'taxonomy' => 'product_cat',
+                    'field' => 'term_id',
+                    'terms' => $category
+                )
+            )
+        );
+
+        // Dohvaćanje filtriranih proizvoda
+        $products = new WP_Query($args);
+
+        // Prikaz filtriranih proizvoda
+        if ($products->have_posts()) {
+            while ($products->have_posts()) {
+                $products->the_post();
+                wc_get_template_part('content', 'product');
+            }
+        } else {
+            echo 'Nema pronađenih proizvoda.';
+        }
+
+        // Resetovanje upita proizvoda
+        wp_reset_postdata();
+    }
+
+    // Završavanje izvršavanja skripte
+    wp_die();
+}
