@@ -21,7 +21,8 @@
 // 	}
 // }
 
-.btn {
+.btn,
+.button {
 	display: inline-block;
 	@include clamp-font-size(12, 16);
 	background-color: $robin-blue;

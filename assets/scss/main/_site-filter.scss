@@ -1,0 +1,39 @@
+
+/*--------------------------------------------------------------
+# Reset and Variables
+--------------------------------------------------------------*/
+.filter {
+    margin-bottom: 30px;
+}
+
+.filter__title {
+	font-family: $font-main;
+	color: $black;
+	line-height: 1.4;
+	font-weight: 700;
+	@include clamp-font-size(16, 26);
+	margin-bottom: 10px;
+}
+
+.filter__item {
+    margin-bottom: 8px;
+}
+
+.filter__active-item {
+    font-weight: bold;
+}
+
+.filter__item-link {
+    color: $grey;
+    transition: $dur $ease;
+
+    .filter__active-item & {
+        color: $orange;
+    }
+
+    @include hover {
+        color: $orange;
+    }
+}
+
+  

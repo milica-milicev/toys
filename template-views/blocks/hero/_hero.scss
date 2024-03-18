@@ -15,6 +15,7 @@
 
 .hero__container {
 	display: flex;
+	justify-content: space-between;
 
 	@include mq($md) {
        display: block;
@@ -22,12 +23,14 @@
 }
 
 .hero__content {
+	flex: 0 0 50%;
 	max-width: 470px;
 	padding: 60px 0;
 	align-self: center;
 
 	@include mq($md) {
        max-width: 100%;
+	   flex: 0 0 100%;
 	   text-align: center;
 	   padding: 0;
 	   max-width: 400px;
@@ -39,7 +42,7 @@
 	@include clamp-font-size(22, 38);
 	font-weight: 900;
 	line-height: 1.25;
-	margin-bottom: 25px;
+	margin-bottom: 15px;
 
 	span {
 		color: $robin-blue;

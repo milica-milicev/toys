@@ -254,3 +254,6 @@ function filter_products() {
     // Završavanje izvršavanja skripte
     wp_die();
 }
+
+// woo disable css
+add_filter( 'woocommerce_enqueue_styles', '__return_empty_array' );
