@@ -1,0 +1,56 @@
+.info-panels {
+	padding: 50px 0;
+	background-color: $white-smoke;
+}
+
+.info-panels__container {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	margin: 0 -10px;
+}
+
+.info-panel {
+	flex: 33.3%;
+	max-width: 33%;
+	padding: 0 10px;
+
+	img {
+		border-radius: 10px;
+		width: 100%;
+	}
+
+	h3 {
+		margin: 20px 0 15px;
+		font-weight: bold;
+		@include clamp-font-size(18, 22);
+	}
+
+	p {
+		@include clamp-font-size(14, 16);
+	}
+
+	@include mq($md) {
+		flex: 50%;
+		max-width: 50%;
+		margin-bottom: 50px;
+
+		&:last-of-type {
+			margin-bottom: 0;
+		}
+	}
+
+	@include mq($sm) {
+		flex: 100%;
+		max-width: 100%;
+
+		h3 {
+			margin: 20px 0 5px;
+		}
+
+		img {
+			max-height: 300px;
+			object-fit: cover;
+		}
+	}
+}

@@ -78,7 +78,7 @@ pre {
 	}
 
 	h2 {
-		@include clamp-font-size(18, 30);
+		@include clamp-font-size(18, 34);
 		margin-bottom: clamp(1.25rem, 1.0625rem + 0.9375vw, 2rem);
 	}
 
