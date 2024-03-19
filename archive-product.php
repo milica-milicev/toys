@@ -98,53 +98,26 @@ do_action( 'woocommerce_before_main_content' );
 						</ul>
 					</div>
 				<?php endif; ?>
-				
-				<!-- Gender -->
-				<div class="filter">
-					<h3 class="filter__title">Pol</h3>
-					<div class="filter__options">
-						<label class="checkbox">
-							Dečaci
-							<input type="checkbox" name="gender" value="boys">
-							<span class="checkbox__checkmark font-checkmark"></span>
-						</label>
-						<label class="checkbox">
-							Devojčice
-							<input type="checkbox" name="gender" value="girls" checked>
-							<span class="checkbox__checkmark font-checkmark"></span>
-						</label>
-						<label class="checkbox">
-							Univerzalno
-							<input type="checkbox" name="gender" value="unisex">
-							<span class="checkbox__checkmark font-checkmark"></span>
-						</label>
-					</div>
-				</div>
 
 				<!-- Age -->
 				<div class="filter">
 					<h3 class="filter__title">Uzrast</h3>
 					<div class="filter__options">
-						<label class="checkbox">
-						0 - 2 godine
-							<input type="checkbox" name="age" value="0-2">
-							<span class="checkbox__checkmark font-checkmark"></span>
-						</label>
-						<label class="checkbox">
-							2 - 4 godine
-							<input type="checkbox" name="age" value="2-4" checked>
-							<span class="checkbox__checkmark font-checkmark"></span>
-						</label>
-						<label class="checkbox">
-							4 - 6 godina
-							<input type="checkbox" name="age" value="4-6">
-							<span class="checkbox__checkmark font-checkmark"></span>
-						</label>
-						<label class="checkbox">
-							6 - 8 godina
-							<input type="checkbox" name="age" value="unisex">
-							<span class="checkbox__checkmark font-checkmark"></span>
-						</label>
+
+
+						<?php // Prikazivanje filtera za uzrast
+						$age_ranges = get_field_object('field_65f94e27961f5'); // 'field_key'
+		
+						if ($age_ranges && isset($age_ranges['choices'])) :
+							foreach ($age_ranges['choices'] as $key => $value) : ?>
+								<label class="checkbox">
+									<?php echo esc_html($value); ?>
+									<input class="js-filter-option" type="checkbox" name="age_range" value="<?php echo esc_attr($key); ?>">
+									<span class="checkbox__checkmark font-checkmark"></span>
+								</label>
+							<?php
+							endforeach;
+						endif; ?>
 					</div>
 				</div>
 			</div>
@@ -162,7 +135,7 @@ do_action( 'woocommerce_before_main_content' );
 						do_action( 'woocommerce_before_shop_loop' );
 						?>
 
-						<div class="products__container">
+						<div class="products__container js-products">
 							<?php if ( wc_get_loop_prop( 'total' ) ) {
 								while ( have_posts() ) {
 									the_post();

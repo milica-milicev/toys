@@ -69,14 +69,7 @@ textarea {
 .checkbox {
     display: flex;
     flex-direction: column;
-}
-
-.checkbox input[type='checkbox'] {
-    display: none;
-}
-
-.checkbox {
-    position: relative;
+	position: relative;
     padding-left: 24px;
     padding-bottom: 0;
     margin-bottom: 7px;
@@ -89,6 +82,10 @@ textarea {
     @include hover {
         color: $black;
     }
+}
+
+.checkbox input[type='checkbox'] {
+    display: none;
 }
 
 .checkbox .checkbox__checkmark {
