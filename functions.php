@@ -231,7 +231,7 @@ add_filter( 'woocommerce_enqueue_styles', '__return_empty_array' );
 /**
  * Woocommerce products number on archive page
  */
-add_filter( 'loop_shop_per_page', 'new_loop_shop_per_page', 20 );
+add_filter( 'loop_shop_per_page', 'new_loop_shop_per_page', 9 );
 
 function new_loop_shop_per_page( $cols ) {
   return 9;
@@ -278,7 +278,7 @@ function filter_products_by_age() {
     // Pripremamo argumente za WP_Query
     $args = array(
         'post_type' => 'product',
-        'posts_per_page' => 9,
+        'posts_per_page' => 10,
         'paged' => $paged,
         'meta_query' => $meta_query,
         'tax_query' => $tax_query,

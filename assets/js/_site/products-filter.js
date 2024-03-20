@@ -3,13 +3,23 @@ const ProductsFilter = {
     init: function () {
         const productsContainer = document.querySelector('.js-products');
         const filterOptions = document.querySelectorAll('.js-filter-option');
+        const loader = document.querySelector('.js-products-loader');
         let isFiltering = false;
         let currentPage = 1;
         let maxPages = parseInt(themeLocal.maxPages) || 1;
 
+        function showLoader() {
+            loader.style.display = 'block'; // Prikazuje loader
+        }
+
+        function hideLoader() {
+            loader.style.display = 'none'; // Skriva loader
+        }
+
         function ajaxFilter(ageRange, page) {
             if (isFiltering) return;
             isFiltering = true;
+            showLoader();
 
             const data = {
                 action: 'filter_products_by_age',
@@ -27,6 +37,7 @@ const ProductsFilter = {
             })
             .then(response => response.json())
             .then(data => {
+                hideLoader();
                 if (data.content) {
                     if (currentPage === 1) {
                         productsContainer.innerHTML = data.content;
@@ -43,6 +54,7 @@ const ProductsFilter = {
             })
             .catch(error => {
                 console.error('Došlo je do greške:', error);
+                hideLoader();
                 isFiltering = false;
             });
         }

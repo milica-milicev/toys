@@ -1,3 +1,12 @@
+@keyframes spin {
+	0% {
+		transform: rotate(0deg);
+	}
+	100% {
+		transform: rotate(360deg);
+	}
+}
+
 .products {
 	padding: 60px 0;
 	background-color: $white-smoke;
@@ -47,6 +56,28 @@
         display: block;
 		margin: 0;
 	}
+}
+
+.products__loader {
+	display: none;
+	margin-top: 20px;
+}
+
+.products__loader-wrap {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.products__loader-spinner {
+	display: inline-block;
+	border: 4px solid $grey;
+	border-radius: 50%;
+	border-top: 4px solid $robin-blue;
+	width: 20px;
+	height: 20px;
+	animation: spin 2s linear infinite;
+	margin-right: 10px;
 }
 
 .product-item {
@@ -218,15 +249,6 @@
 .product-item__btn .button.loading::after {
 	opacity: 1;
 	visibility: visible;
-}
-
-@keyframes spin {
-	0% {
-		transform: rotate(0deg);
-	}
-	100% {
-		transform: rotate(360deg);
-	}
 }
 
 .product-item__btn .added_to_cart {
