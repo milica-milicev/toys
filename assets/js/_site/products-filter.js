@@ -1,17 +1,12 @@
-
 'use strict';
 const ProductsFilter = {
-
-	/*-------------------------------------------------------------------------------
-		# Initialize
-	-------------------------------------------------------------------------------*/
-	init: function () {
+    init: function () {
         const productsContainer = document.querySelector('.js-products');
         const filterOptions = document.querySelectorAll('.js-filter-option');
         let isFiltering = false;
         let currentPage = 1;
         let maxPages = parseInt(themeLocal.maxPages) || 1;
-        
+
         function ajaxFilter(ageRange, page) {
             if (isFiltering) return;
             isFiltering = true;
@@ -19,7 +14,7 @@ const ProductsFilter = {
             const data = {
                 action: 'filter_products_by_age',
                 ageRange: ageRange.join(','),
-                category: themeLocal.currentCategory || '', // Pretpostavljam da imate ovu informaciju
+                category: themeLocal.currentCategory || '',
                 paged: page
             };
             
@@ -38,10 +33,11 @@ const ProductsFilter = {
                     } else {
                         productsContainer.insertAdjacentHTML('beforeend', data.content);
                     }
-                    currentPage++; // Povećajte za učitavanje sledeće stranice
+                    currentPage++;
                     if (data.max_num_pages) {
                         maxPages = data.max_num_pages;
                     }
+                    observeLastProduct(); // Ponovo postavite observer na novi poslednji proizvod
                 }
                 isFiltering = false;
             })
@@ -50,25 +46,35 @@ const ProductsFilter = {
                 isFiltering = false;
             });
         }
-    
+
+        // Intersection Observer Setup
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting && currentPage <= maxPages && !isFiltering) {
+                    let selectedAges = Array.from(filterOptions).filter(option => option.checked).map(option => option.value);
+                    ajaxFilter(selectedAges, currentPage);
+                }
+            });
+        }, { rootMargin: '0px', threshold: 0.1 });
+
+        // Funkcija za posmatranje poslednjeg proizvoda
+        function observeLastProduct() {
+            const products = document.querySelectorAll('.js-products .product');
+            if (products.length > 0) {
+                observer.observe(products[products.length - 1]);
+            }
+        }
+
         filterOptions.forEach(option => option.addEventListener('change', function() {
-            let selectedAges = Array.from(filterOptions)
-                                    .filter(option => option.checked)
-                                    .map(option => option.value);
-            currentPage = 1;
+            let selectedAges = Array.from(filterOptions).filter(option => option.checked).map(option => option.value);
+            currentPage = 1; // Resetujemo stranicu na prvu
             ajaxFilter(selectedAges, currentPage);
         }));
-    
-        window.addEventListener('scroll', () => {
-            const { scrollTop, scrollHeight, clientHeight } = document.documentElement;
-            if (scrollTop + clientHeight >= scrollHeight - 5 && currentPage <= maxPages && !isFiltering) {
-                let selectedAges = Array.from(filterOptions)
-                                        .filter(option => option.checked)
-                                        .map(option => option.value);
-                ajaxFilter(selectedAges, currentPage);
-            }
-        });
+
+        observeLastProduct(); // Postavite observer na poslednji proizvod pri inicijalizaciji
     }
 };
+
+document.addEventListener('DOMContentLoaded', ProductsFilter.init);
 
 export default ProductsFilter;

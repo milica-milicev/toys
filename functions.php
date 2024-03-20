@@ -234,15 +234,8 @@ add_filter( 'woocommerce_enqueue_styles', '__return_empty_array' );
 add_filter( 'loop_shop_per_page', 'new_loop_shop_per_page', 20 );
 
 function new_loop_shop_per_page( $cols ) {
-  return 10;
+  return 9;
 }
-
-/**
- * Woocommerce default sort on archive page
- */
-add_filter( 'woocommerce_default_catalog_orderby', function( $sort_by ) {
-    return 'date'; // Možete promeniti na 'popularity', 'rating', 'date', 'price', 'price-desc'
-});
 
 /**
  * Filter Products
@@ -285,10 +278,12 @@ function filter_products_by_age() {
     // Pripremamo argumente za WP_Query
     $args = array(
         'post_type' => 'product',
-        'posts_per_page' => 10,
+        'posts_per_page' => 9,
         'paged' => $paged,
         'meta_query' => $meta_query,
         'tax_query' => $tax_query,
+		'orderby'   => 'menu_order',
+		'order' => 'ASC'
     );
 
     $query = new WP_Query($args);
