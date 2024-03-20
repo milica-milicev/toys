@@ -1,6 +1,16 @@
 .info-panels {
 	padding: 50px 0;
 	background-color: $white-smoke;
+	margin: 0 30px;
+	border-radius: 10px;
+
+	@include mq($md) {
+       margin: 0 15px;
+    }
+
+	@include mq($sm) {
+		padding: 40px 0;
+	}
 }
 
 .info-panels__container {

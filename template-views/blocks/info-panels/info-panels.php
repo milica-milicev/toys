@@ -7,7 +7,7 @@
 			<div class="info-panel">
 				<img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/_demo/info-panel1.jpg" alt="">
 				<h3>Kvalitet</h3>
-				<p>Razumemo da su igračke više od običnih predmeta; one su ključni alati u razvoju vašeg deteta, zato biramo proizvode koji su izdržljivi, bezbedni za upotrebu i dizajnirani da podrže rastući um. Naš cilj je da ponudimo igračke koje će biti deo vaše porodice godinama koje dolaze, inspirišući maštu i učenje kroz igru.</p>
+				<p>Razumemo da su igračke više od običnih predmeta; one su ključni alati u razvoju vašeg deteta, zato biramo proizvode koji su izdržljivi, bezbedni za upotrebu i dizajnirani da podrže rastući um.</p>
 			</div>
 			<div class="info-panel">
 				<img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/_demo/info-panel1.jpg" alt="">

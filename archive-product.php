@@ -103,8 +103,6 @@ do_action( 'woocommerce_before_main_content' );
 				<div class="filter">
 					<h3 class="filter__title">Uzrast</h3>
 					<div class="filter__options">
-
-
 						<?php // Prikazivanje filtera za uzrast
 						$age_ranges = get_field_object('field_65f94e27961f5'); // 'field_key'
 		
@@ -132,6 +130,8 @@ do_action( 'woocommerce_before_main_content' );
 						 * @hooked woocommerce_result_count - 20
 						 * @hooked woocommerce_catalog_ordering - 30
 						 */
+						remove_action( 'woocommerce_before_shop_loop', 'woocommerce_result_count', 20 );
+						remove_action( 'woocommerce_before_shop_loop', 'woocommerce_catalog_ordering', 30 );
 						do_action( 'woocommerce_before_shop_loop' );
 						?>
 
@@ -156,7 +156,7 @@ do_action( 'woocommerce_before_main_content' );
 						 *
 						 * @hooked woocommerce_pagination - 10
 						 */
-						do_action( 'woocommerce_after_shop_loop' );
+						//do_action( 'woocommerce_after_shop_loop' );
 					} else {
 						/**
 						 * Hook: woocommerce_no_products_found.

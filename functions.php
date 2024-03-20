@@ -137,7 +137,19 @@ add_action( 'widgets_init', 'nm_theme_widgets_init' );
 /**
  * Enqueue scripts and styles.
  */
+
 function nm_theme_scripts() {
+	global $wp_query;
+	$max_pages = ceil($wp_query->found_posts / get_option('posts_per_page'));
+
+	$current_category = get_queried_object();
+
+	// Dodajemo trenutnu kategoriju u objekat ako je to kategorija proizvoda
+	if ( is_a( $current_category, 'WP_Term' ) && $current_category->taxonomy === 'product_cat' ) {
+		$current_category_slug = $current_category->slug;
+	} else {
+		$current_category_slug = '';
+	}
 	wp_enqueue_style( 'nm_theme-style', get_stylesheet_uri(), array(), _S_VERSION );
 
 	wp_enqueue_script( 'nm_theme-script', get_template_directory_uri() . '/dist/site.min.js', _S_VERSION, true );
@@ -145,7 +157,9 @@ function nm_theme_scripts() {
 	wp_localize_script( 'nm_theme-script',
 		'themeLocal',
 		[
-			'ajax_url'     => admin_url( 'admin-ajax.php' ),
+			'maxPages' => $max_pages,
+			'ajax_url' => admin_url( 'admin-ajax.php' ),
+			'currentCategory' => $current_category_slug,
 		]
 	);
 
@@ -213,139 +227,87 @@ add_filter('get_search_form', 'custom_search_form');
  */
 add_filter( 'woocommerce_enqueue_styles', '__return_empty_array' );
 
-/**
- * Products filters
- */
-
-
-// add_action('pre_get_posts', 'custom_age_range_filter');
-// function custom_age_range_filter($query) {
-//     if (!is_admin() && $query->is_main_query() && is_post_type_archive('product')) {
-//         if (!empty($_GET['uzrast'])) {
-//             // Zamena razmaka sa '+' u slučaju da je automatski dekodiran
-//             $age_ranges_raw = str_replace(' ', '+', $_GET['uzrast']);
-//             $age_ranges = explode('+', $age_ranges_raw);
-//             $meta_query = array('relation' => 'OR');
-//             foreach ($age_ranges as $range) {
-//                 $meta_query[] = array(
-//                     'key' => 'age_range',
-//                     'value' => sanitize_text_field($range),
-//                     'compare' => 'LIKE',
-//                 );
-//             }
-//             $query->set('meta_query', $meta_query);
-//         }
-//     }
-// }
-
 
 /**
- * Filter Team
+ * Woocommerce products number on archive page
  */
+add_filter( 'loop_shop_per_page', 'new_loop_shop_per_page', 20 );
 
-function filter_products() {
-	// $selected_age = '';
+function new_loop_shop_per_page( $cols ) {
+  return 10;
+}
 
-	// if ( ! empty( $_REQUEST['selected_age'] ) ) {
-	// 	$selected_age = $_REQUEST['selected_age'];
-	// }
+/**
+ * Woocommerce default sort on archive page
+ */
+add_filter( 'woocommerce_default_catalog_orderby', function( $sort_by ) {
+    return 'date'; // Možete promeniti na 'popularity', 'rating', 'date', 'price', 'price-desc'
+});
 
-	// $args = array(
-	// 	'post_type' => 'product',
-	// 	'posts_per_page' => -1,
-	// 	'meta_query' => array(
-	// 		array(
-	// 			'key' => 'age_range',
-	// 			'value' => $selected_age,
-	// 			'compare'  => 'LIKE',
-	// 			'operator' => 'IN',
-	// 		)
-	// 	)
-	// );
+/**
+ * Filter Products
+ */
+add_action( 'wp_ajax_nopriv_filter_products_by_age', 'filter_products_by_age' );
+add_action( 'wp_ajax_filter_products_by_age', 'filter_products_by_age' );
 
-	$selected_ages = array();
+function filter_products_by_age() {
+    // Preuzimamo parametre
+    $age_filter = isset($_POST['ageRange']) ? explode(',', sanitize_text_field($_POST['ageRange'])) : [];
+    $category = isset($_POST['category']) ? sanitize_text_field($_POST['category']) : '';
+    $paged = isset($_POST['paged']) ? intval($_POST['paged']) : 1;
 
-    if ( ! empty( $_REQUEST['selected_age'] ) ) {
-        $selected_ages = explode(',', $_REQUEST['selected_age']);
-    }
+	if (!empty($age_filter)) {
+		$meta_query = array('relation' => 'OR');
+		foreach ($age_filter as $age) {
+			$meta_query[] = array(
+				'key' => 'age_range',
+				'value' => $age,
+				'compare' => 'LIKE',
+			);
+		}
+	} else {
+		$meta_query = ''; // Ako nema izabranih filtera, ne koristite meta_query
+	}
 
-    $meta_query = array('relation' => 'OR');
 
-    foreach ($selected_ages as $age) {
-        $meta_query[] = array(
-            'key' => 'age_range',
-            'value' => sanitize_text_field($age),
-            'compare' => 'LIKE',
+    // Ako se filtrira unutar kategorije, pripremamo taksonomski query
+    $tax_query = array();
+    if (!empty($category)) {
+        $tax_query = array(
+            array(
+                'taxonomy' => 'product_cat',
+                'field' => 'slug',
+                'terms' => $category,
+            )
         );
     }
 
+    // Pripremamo argumente za WP_Query
     $args = array(
         'post_type' => 'product',
-        'posts_per_page' => -1,
-        'meta_query' => $meta_query
+        'posts_per_page' => 10,
+        'paged' => $paged,
+        'meta_query' => $meta_query,
+        'tax_query' => $tax_query,
     );
 
-	// if ( ! empty( $_REQUEST['loc_term'] ) ) {
-	// 	$loc_term = $_REQUEST['loc_term'];
-	// }
+    $query = new WP_Query($args);
 
-	// $tax_query = [ 'relation' => 'AND' ];
+    $products = array();
+    if ($query->have_posts()) {
+        ob_start();
+        while ($query->have_posts()) {
+            $query->the_post();
+            wc_get_template_part('content', 'product');
+        }
+        $products['content'] = ob_get_clean();
+        $products['max_num_pages'] = $query->max_num_pages;
+    } else {
+        $products['content'] = 'Nema pronađenih proizvoda.';
+        $products['max_num_pages'] = 0;
+    }
 
-	// if ( isset( $selected_age ) && $selected_age != "" ) {
-	// 	$tax_query[] = [
-	// 		'taxonomy' => 'ctax_team_sector',
-	// 		'field'    => 'slug',
-	// 		'terms'    => $selected_age,
-	// 		'compare'  => 'LIKE',
-	// 		'operator' => 'IN',
-	// 	];
-	// }
-
-	// if ( isset( $loc_term ) && $loc_term != "" ) {
-	// 	$tax_query[] = [
-	// 		'taxonomy' => 'ctax_team_location',
-	// 		'field'    => 'slug',
-	// 		'terms'    => $loc_term,
-	// 		'compare'  => 'LIKE',
-	// 		'operator' => 'IN',
-	// 	];
-	// }
-
-	// $args = [
-	// 	'post_type'      => 'product',
-	// 	'posts_per_page' => - 1,
-	// 	'tax_query'      => $tax_query,
-	// ];
-
-	$query = new WP_Query( $args );
-
-	if ( $query->have_posts() ) :
-		ob_start(); ?>
-		<?php while ( $query->have_posts() ): $query->the_post(); ?>
-		<?php wc_get_template_part('content', 'product'); ?>
-			
-		<?php endwhile; ?>
-		<?php
-		$content = ob_get_contents();
-		ob_end_clean();
-
-		$response = [
-			'content' => $content,
-		];
-
-		// wp_send_json( $response );
-
-		wp_send_json_success(array(
-			$content
-		));
-
-		wp_reset_postdata();
-	endif;
-
-	die();
-
-	
+    wp_send_json($products);
+    wp_reset_postdata();
+    die();
 }
-
-add_action( 'wp_ajax_filter_products', 'filter_products' );
-add_action( 'wp_ajax_nopriv_filter_products', 'filter_products' );
