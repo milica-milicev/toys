@@ -261,7 +261,6 @@ function filter_products_by_age() {
 		$meta_query = ''; // Ako nema izabranih filtera, ne koristite meta_query
 	}
 
-
     // Ako se filtrira unutar kategorije, pripremamo taksonomski query
     $tax_query = array();
     if (!empty($category)) {

@@ -67,6 +67,48 @@ const Sliders = {
 				},
 			},
 		});
+
+
+
+		var productThumbs = new Swiper(".js-product-thumbs", {
+			slidesPerView: 3,
+			spaceBetween: 10,
+			// direction: 'vertical',
+			breakpoints: {
+				767: {
+					slidesPerView: 4,
+					spaceBetween: 20,
+				},
+			},
+		});
+
+		var productMain = new Swiper(".js-product-main", {
+			watchOverflow: true,
+			watchSlidesVisibility: true,
+			watchSlidesProgress: true,
+			preventInteractionOnTransition: true,
+			navigation: {
+				nextEl: '.js-product-main-next-btn',
+				prevEl: '.js-product-main-prev-btn',
+			},
+			effect: 'fade',
+				fadeEffect: {
+				crossFade: true
+			},
+			thumbs: {
+				swiper: productThumbs
+			}
+		});
+
+		productMain.on('slideChangeTransitionStart', function() {
+			productThumbs.slideTo(productMain.activeIndex);
+		});
+
+		productThumbs.on('transitionStart', function(){
+			productMain.slideTo(productThumbs.activeIndex);
+		});
+
+
 	}
 };
 

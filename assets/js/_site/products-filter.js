@@ -39,7 +39,8 @@ const ProductsFilter = {
             .then(data => {
                 hideLoader();
                 if (data.content) {
-                    productsContainer.innerHTML += data.content;
+                    // productsContainer.innerHTML += data.content;
+                    productsContainer.insertAdjacentHTML('beforeend', data.content);
                     maxPages = data.max_num_pages;
                 }
                 isFiltering = false;
@@ -67,11 +68,11 @@ const ProductsFilter = {
             });
         }));
 
+
         function checkScroll() {
             const rect = productsContainer.getBoundingClientRect();
             const isAtEnd = rect.bottom <= window.innerHeight + 100;
-            console.log('ds ' + currentPage);
-            console.log(maxPages);
+
             if (isAtEnd && currentPage < maxPages && !isFiltering) {
                 currentPage++; // Sada zatražite sledeću stranicu proizvoda
                 let selectedAges = Array.from(filterOptions).filter(option => option.checked).map(option => option.value);
@@ -79,7 +80,9 @@ const ProductsFilter = {
             }
         }
 
-        window.addEventListener('scroll', checkScroll);
+        if (productsContainer) {
+            window.addEventListener('scroll', checkScroll);
+        }
     }
 };
 

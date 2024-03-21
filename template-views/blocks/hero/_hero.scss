@@ -32,10 +32,14 @@
        max-width: 100%;
 	   flex: 0 0 100%;
 	   text-align: center;
-	   padding: 0;
+	   padding: 10px 0;
 	   max-width: 400px;
 	   margin: 0 auto;
     }
+}
+
+.hero__content--sm {
+	padding: 20px 0;
 }
 
 .hero__content-title {

@@ -87,6 +87,9 @@ do_action( 'woocommerce_before_main_content' );
 					<div class="filter">
 						<h3 class="filter__title">Kategorije</h3>
 						<ul>
+							<li class="filter__item <?php if (is_shop()) echo 'filter__active-item'; ?>">
+								<a href="<?php echo esc_url(wc_get_page_permalink('shop')); ?>" class="filter__item-link">Sve Igračke</a>
+							</li>
 							<?php foreach ($product_categories as $category) : ?>
 								<?php $class = ($current_category instanceof WP_Term && $current_category->term_id === $category->term_id) ? 'filter__active-item' : ''; ?>
 								<li class="filter__item <?php echo $class; ?>">
