@@ -152,7 +152,7 @@ do_action( 'woocommerce_before_main_content' );
 						</div>
 						<div class="products__loader js-products-loader">
 							<div class="products__loader-wrap">
-								<span class="products__loader-spinner"></span>Učitavanje još proizvoda...
+								<span class="products__loader-spinner"></span>Proizvodi se učitavaju...
 							</div>
 						</div>
 						

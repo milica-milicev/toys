@@ -244,8 +244,7 @@ add_action( 'wp_ajax_nopriv_filter_products_by_age', 'filter_products_by_age' );
 add_action( 'wp_ajax_filter_products_by_age', 'filter_products_by_age' );
 
 function filter_products_by_age() {
-    // Preuzimamo parametre
-    $age_filter = isset($_POST['ageRange']) ? explode(',', sanitize_text_field($_POST['ageRange'])) : [];
+    $age_filter = (isset($_POST['ageRange']) && !empty($_POST['ageRange'])) ? explode(',', sanitize_text_field($_POST['ageRange'])) : [];
     $category = isset($_POST['category']) ? sanitize_text_field($_POST['category']) : '';
     $paged = isset($_POST['paged']) ? intval($_POST['paged']) : 1;
 
@@ -278,7 +277,7 @@ function filter_products_by_age() {
     // Pripremamo argumente za WP_Query
     $args = array(
         'post_type' => 'product',
-        'posts_per_page' => 10,
+        'posts_per_page' => 9,
         'paged' => $paged,
         'meta_query' => $meta_query,
         'tax_query' => $tax_query,
