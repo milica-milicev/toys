@@ -1,10 +1,10 @@
 .hero {
 	background-color: $white-smoke;
-	margin: 0 30px;
+	margin: 0 30px 30px;
 	border-radius: 10px;
 
 	@include mq($md) {
-       margin: 0 15px;
+       margin: 0 15px 20px;
 	   padding-top: 60px;
     }
 
@@ -29,7 +29,6 @@
 	align-self: center;
 
 	@include mq($md) {
-       max-width: 100%;
 	   flex: 0 0 100%;
 	   text-align: center;
 	   padding: 10px 0;
@@ -40,6 +39,12 @@
 
 .hero__content--sm {
 	padding: 20px 0;
+	flex: 0 0 100%;
+	max-width: 100%;
+
+	@include mq($md) {
+		max-width: 100%;
+	}
 }
 
 .hero__content-title {
@@ -108,5 +113,19 @@
 		top: auto;
 		bottom: 27px;
 		transform: translate(-50%, 0);
+	}
+}
+
+.hero__breadcrumbs {
+	color: $grey;
+
+	a {
+		color: $orange;
+		text-decoration: underline;
+		transition: $dur $ease;
+
+		@include hover {
+			color: $black;
+		}
 	}
 }

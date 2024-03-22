@@ -51,7 +51,6 @@ const ProductsFilter = {
                 isFiltering = false;
             });
         }
-        
 
         filterOptions.forEach(option => option.addEventListener('change', function() {
             let selectedAges = Array.from(filterOptions).filter(option => option.checked).map(option => option.value);

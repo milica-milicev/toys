@@ -1,8 +1,8 @@
 .tiles {
-	padding: 60px 0;
+	padding: 30px 0;
 
 	@include mq($xs) {
-        padding: 45px 0;
+        padding: 20px 0;
     }
 }
 
