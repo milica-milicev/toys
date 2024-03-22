@@ -1,0 +1,147 @@
+/*--------------------------------------------------------------
+# Woocommerce checkout page
+--------------------------------------------------------------*/
+.checkout {
+    padding: 45px 0;
+
+    @include mq($md) {
+        padding: 20px 0 45px;
+    }
+}
+
+.checkout__form-container {
+    display: flex;
+    flex-wrap: wrap;
+
+    @include mq($md) {
+		display: block;
+	}
+}
+
+.checkout__form-wrap {
+    max-width: 65%;
+    flex: 0 0 65%;
+    padding-right: 60px;
+
+    @include mq($md) {
+		max-width: 100%;
+        flex: 0 0 100%;
+        padding-right: 0;
+	}
+}
+
+.checkout__order-details {
+    max-width: 35%;
+    flex: 0 0 35%;
+
+    @include mq($md) {
+		max-width: 100%;
+        flex: 0 0 100%;
+	}
+}
+
+.checkout__title {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.checkout__billing {
+    margin-bottom: 20px;
+}
+
+.checkout__billing-fields {
+    display: flex;
+    flex-wrap: wrap;
+
+    .form-row-first {
+        max-width: 50%;
+        flex: 0 0 50%;
+        padding-right: 10px;
+    }
+
+    .form-row-last {
+        max-width: 50%;
+        flex: 0 0 50%;
+        padding-left: 10px;
+    }
+
+    .form-row-wide {
+        max-width: 100%;
+        flex: 0 0 100%;
+    }
+
+    @include mq($sm) {
+		display: block;
+
+        .form-row-first {
+            max-width: 100%;
+            flex: 0 0 100%;
+            padding-right: 0;
+        }
+
+        .form-row-last {
+            max-width: 100%;
+            flex: 0 0 100%;
+            padding-left: 0;
+        }
+	}
+}
+
+.checkout__order-review {
+    border-bottom: 1px solid $white-smoke;
+}
+
+.checkout__order-review-item {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+}
+
+.checkout__product-thumbnail {
+    width: 60px;
+    padding-right: 10px;
+}
+
+.checkout__product-name {
+    flex: 1;
+    padding-right: 10px;
+}
+
+.checkout__product-total {
+    width: 92px;
+    font-weight: bold;
+    text-align: right;
+}
+
+.checkout__totals-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 10px 0;
+    border-bottom: 1px solid $white-smoke;
+
+    &:last-of-type {
+        border-bottom: none;
+        margin-bottom: 15px;
+    }
+
+    span {
+        font-size: 16px;
+
+        &:last-of-type {
+            font-weight: bold;
+        }
+    }
+}
+
+.checkout__order-total {
+    span {
+        font-size: 20px;
+        font-weight: bold;
+    }
+}
+
+.checkout__order-checkout-btn {
+    text-align: right;
+}
