@@ -115,13 +115,27 @@ abbr[title] {
     position: absolute;
     display: none;
     left: 2px;
-    top: 0;
+    top: 1px;
     color: $white;
     font-size: 10px;
 }
   
 .checkbox input:checked ~ .checkbox__checkmark::before {
     display: block;
+}
+
+.checkbox__text {
+	color: $black;
+
+	a {
+		color: $orange;
+		text-decoration: underline;
+		transition: $dur $ease;
+
+		@include hover {
+			color: $black;
+		}
+	}
 }
 
 // wpcf7

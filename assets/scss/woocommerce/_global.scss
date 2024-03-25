@@ -1,0 +1,37 @@
+/*--------------------------------------------------------------
+# Woocommerce global elements
+--------------------------------------------------------------*/
+.notices {
+	margin: 15px 0;
+
+	.woocommerce-error {
+		display: flex;
+        width: 100%;
+        background-color: rgba($red, 0.4);
+        padding: 11px;
+        border-radius: 10px;
+        flex-wrap: wrap;
+        grid-gap: 0 10px;
+	}
+
+    .woocommerce-message,
+    .woocommerce-info {
+		display: flex;
+		grid-gap: 20px;
+		align-items: center;
+		justify-content: space-between;
+		background: $white-smoke;
+		padding: 11px;
+		border-radius: 10px;
+
+        .button {
+            order: 1;
+        }
+	}
+}
+
+.notices--revert {
+    .woocommerce-message {
+        flex-direction: row-reverse;
+    }
+}

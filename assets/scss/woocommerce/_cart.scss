@@ -67,6 +67,8 @@
     td {
         padding-top: 20px;
         padding-bottom: 20px;
+        vertical-align: middle;
+        font-size: 14px;
     }
 
     &:last-of-type {
@@ -136,6 +138,14 @@
 
 .cart__actions {
     text-align: right;
+}
+
+.cart__actions-update-btn {
+    background-color: $fire-bush;
+
+    &:disabled {
+        opacity: 0.5;
+    }
 }
 
 .cart__totals-item {

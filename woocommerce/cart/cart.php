@@ -28,8 +28,7 @@ do_action( 'woocommerce_before_cart' ); ?>
 				<table class="cart__table" cellspacing="0">
 					<thead>
 						<tr>
-							<th class="cart__header-thumbnail"><?php esc_html_e( 'Product', 'woocommerce' ); ?></th>
-							<th class="cart__header-product"><span class="screen-reader-text"><?php esc_html_e( 'Details', 'woocommerce' ); ?></span></th>
+							<th class="cart__header-thumbnail" colspan="2"><?php esc_html_e( 'Product', 'woocommerce' ); ?></th>
 							<th class="cart__header-subtotal"><?php esc_html_e( 'Total', 'woocommerce' ); ?></th>
 						</tr>
 					</thead>
@@ -166,7 +165,7 @@ do_action( 'woocommerce_before_cart' ); ?>
 									</div>
 								<?php } ?>
 
-								<button type="submit" class="button<?php echo esc_attr( wc_wp_theme_get_element_class_name( 'button' ) ? ' ' . wc_wp_theme_get_element_class_name( 'button' ) : '' ); ?>" name="update_cart" value="<?php esc_attr_e( 'Update cart', 'woocommerce' ); ?>"><?php esc_html_e( 'Update cart', 'woocommerce' ); ?></button>
+								<button type="submit" class="cart__actions-update-btn js-update-btn button<?php echo esc_attr( wc_wp_theme_get_element_class_name( 'button' ) ? ' ' . wc_wp_theme_get_element_class_name( 'button' ) : '' ); ?>" name="update_cart" value="<?php esc_attr_e( 'Update cart', 'woocommerce' ); ?>" disabled><?php esc_html_e( 'Update cart', 'woocommerce' ); ?></button>
 
 								<?php do_action( 'woocommerce_cart_actions' ); ?>
 

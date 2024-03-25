@@ -114,6 +114,10 @@
     text-align: right;
 }
 
+.checkout__totals {
+    margin-bottom: 20px;
+}
+
 .checkout__totals-item {
     display: flex;
     justify-content: space-between;
@@ -140,6 +144,22 @@
         font-size: 20px;
         font-weight: bold;
     }
+}
+
+.checkout__payment-methods,
+.checkout__terms,
+.checkout__privacy {
+    margin-bottom: 20px;
+}
+
+.checkout__payment-method {
+    label {
+        display: none;
+    }
+}
+
+.checkout__payment-method-text {
+    font-weight: bold;
 }
 
 .checkout__order-checkout-btn {

@@ -1,26 +1,6 @@
 /*--------------------------------------------------------------
 ## Buttons
 --------------------------------------------------------------*/
-// .btn,
-// input[type='submit'] {
-// 	@include clamp-font-size(13, 15);
-// 	font-family: $font-main;
-// 	background-color: $black;
-// 	color: $white;
-// 	padding: 12px 25px;
-// 	transition: $dur $ease;
-// 	font-weight: 700;
-// 	text-transform: uppercase;
-// 	min-width: 200px;
-// 	text-align: center;
-// 	display: inline-block;
-
-// 	@include hover {
-// 		background-color: $white;
-// 		color: $black;
-// 	}
-// }
-
 .btn,
 .button {
 	display: inline-block;
@@ -51,6 +31,7 @@
 .btn--sec {
 	background-color: $orange;
 	color: $white;
+
 	@include hover {
 		color: $orange;
 		border: 2px solid $orange;
@@ -58,24 +39,23 @@
 	}
 }
 
-.btn--orange {
-	background-color: transparent;
-	color: $orange;
+// .btn--orange {
+// 	background-color: transparent;
+// 	color: $orange;
+// 	@include font(arrow-right, after);
 
-	&::after {
-	  @include font-styles;
-	  content: font-char(arrow-right);
-	  margin-left: 5px;
-	  font-size: 9px;
-	  transition: $dur $ease;
-	  display: inline-block;
-	}
+// 	&::after {
+// 		margin-left: 5px;
+// 		font-size: 9px;
+// 		transition: $dur $ease;
+// 		display: inline-block;
+// 	}
 
-	@include hover {
-		border-color: $orange;
-		color: $orange;
-	}
-}
+// 	@include hover {
+// 		border-color: $orange;
+// 		color: $orange;
+// 	}
+// }
 
 .btn--white {
 	background-color: $white;
@@ -93,14 +73,13 @@
 	font-weight: bold;
 	@include clamp-font-size(14, 16);
 	transition: $dur $ease;
+	@include font(arrow-right, after);
 
 	&::after {
-	  @include font-styles;
-	  content: font-char(arrow-right);
-	  margin-left: 5px;
-	  font-size: 9px;
-	  display: inline-block;
-	  font-weight: bold;
+		margin-left: 5px;
+		font-size: 9px;
+		display: inline-block;
+		font-weight: bold;
 	}
 
 	@include hover {
