@@ -27,6 +27,17 @@
         .button {
             order: 1;
         }
+
+		a {
+			color: $black;
+			font-weight: bold;
+			transition: $dur $ease;
+			text-decoration: underline;
+
+			@include hover {
+				color: $orange;
+			}
+		}
 	}
 }
 

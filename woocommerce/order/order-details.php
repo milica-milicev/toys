@@ -91,10 +91,9 @@ if ( $show_downloads ) {
 			}
 			?>
 			<?php if ( $order->get_customer_note() ) : ?>
-				<tr>
-					<td></td>
-					<td rowspan="2"><?php esc_html_e( 'Note:', 'woocommerce' ); ?></td>
-					<td><?php echo wp_kses_post( nl2br( wptexturize( $order->get_customer_note() ) ) ); ?></td>
+				<tr class="order-details__item order-details__item--note">
+					<td><?php esc_html_e( 'Note:', 'woocommerce' ); ?></td>
+					<td colspan="2" class="order-details__item--note-text"><?php echo wp_kses_post( nl2br( wptexturize( $order->get_customer_note() ) ) ); ?></td>
 				</tr>
 			<?php endif; ?>
 		</tfoot>

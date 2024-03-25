@@ -56,7 +56,11 @@
 							<button class="site-header__actions-link site-header__actions-link--search js-search-btn"><span class="font-search"></span></button>
 						</li>
 						<li class="site-header__actions-item">
-							<button class="site-header__actions-link"><span class="font-cart"></span></button>
+							<!-- <button class="site-header__actions-link"><span class="font-cart"></span></button> -->
+							<a class="site-header__actions-link  cart-contents" href="<?php echo wc_get_cart_url(); ?>" title="<?php _e( 'Pogledajte vašu korpu' ); ?>">
+								<span class="font-cart"></span>
+								<span class="site-header__actions-link-sup js-cart-count"><?php echo WC()->cart->get_cart_contents_count(); ?></span>
+							</a>
 						</li>
 					</ul>
 					<button type="button" class="site-header__navigation-toggle js-menu-btn">

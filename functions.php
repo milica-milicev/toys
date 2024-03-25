@@ -248,7 +248,6 @@ function custom_override_checkout_fields( $fields ) {
     return $fields;
 }
 
-
 /**
  * Filter Products
  */
@@ -317,3 +316,34 @@ function filter_products_by_age() {
     die();
 }
 
+/**
+ * Cart icon counter in header
+ */
+add_filter('woocommerce_add_to_cart_fragments', 'custom_woocommerce_header_add_to_cart_fragment');
+function custom_woocommerce_header_add_to_cart_fragment($fragments) {
+    ob_start();
+    ?>
+    <span class="site-header__actions-link-sup js-cart-count"><?php echo WC()->cart->get_cart_contents_count(); ?></span>
+    <?php
+    $fragments['.js-cart-count'] = ob_get_clean();
+
+    ob_start();
+    ?>
+    <div id="mini-cart">
+        <?php woocommerce_mini_cart(); ?>
+    </div>
+    <?php
+    $fragments['#mini-cart'] = ob_get_clean();
+
+    return $fragments;
+}
+
+
+add_action('wp_footer', 'add_custom_mini_cart');
+function add_custom_mini_cart() {
+    ?>
+    <div id="mini-cart" style="display:none;">
+        <?php woocommerce_mini_cart(); ?>
+    </div>
+    <?php
+}

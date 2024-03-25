@@ -253,17 +253,7 @@
 }
 
 .product-item__btn .added_to_cart {
-	color: $black;
-    font-size: 12px;
-    font-weight: bold;
-    display: flex;
-    align-items: center;
-	@include font(cart);
-
-	&:before {
-		margin-right: 9px;
-		font-size: 16px;
-	}
+	display: none;
 }
 
 .product__btn {
