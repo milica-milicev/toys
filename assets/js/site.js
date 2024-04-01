@@ -7,6 +7,7 @@ import Search from './_site/search';
 import ProductsFilter from './_site/products-filter';
 import QtyCounter from './_site/qty-counter';
 import MiniCart from './_site/mini-cart';
+import FiltersToggle from './_site/filters-toggle';
 
 document.addEventListener('DOMContentLoaded', () => {
 	Sliders.init();
@@ -17,4 +18,5 @@ document.addEventListener('DOMContentLoaded', () => {
 	ProductsFilter.init();
 	QtyCounter.init();
 	MiniCart.init();
+	FiltersToggle.init();
 });

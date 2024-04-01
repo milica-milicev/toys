@@ -17,6 +17,11 @@
         padding: 45px 0;
 		margin: 0 15px;
     }
+
+	@include mq($sm) {
+        padding: 45px 0;
+		margin: 0;
+    }
 }
 
 .products--alt {
@@ -35,16 +40,36 @@
 
 .products__main-container {
 	display: flex;
+	margin: 0 -15px;
+
+	@include mq($sm) {
+        display: block;
+		margin: 0;
+	}
 }
 
 .products__aside {
 	flex: 0 0 25%;
 	max-width: 25%;
+	padding: 0 15px;
+
+	@include mq($sm) {
+        flex: 100%;
+		max-width: 100%;
+		padding: 0;
+	}
 }
 
 .products__main {
 	flex: 0 0 75%;
 	max-width: 75%;
+	padding: 0 15px;
+
+	@include mq($sm) {
+        flex: 100%;
+		max-width: 100%;
+		padding: 0;
+	}
 }
 
 .products__container {
@@ -95,6 +120,11 @@
 	@include mq($lg) {
         flex: 50%;
 		max-width: 50%;
+
+		.products__main & {
+			flex: 50%;
+			max-width: 50%;
+		}
     }
 
 	@include mq($sm) {
@@ -102,6 +132,11 @@
 		max-width: 400px;
 		margin: 0 auto 15px;
 		padding: 0;
+
+		.products__main & {
+			flex: 100%;
+			max-width: 400px;
+		}
     }
 }
 
@@ -113,6 +148,11 @@
 	.products__main & {
 		background-color: $white-smoke;
 	}
+
+	@include mq($sm) {
+        display: flex;
+		flex-wrap: wrap;
+    }
 }
 
 .product-item__img {
@@ -129,7 +169,9 @@
 	}
 
 	@include mq($sm) {
-        height: 200px;
+        height: auto;
+		flex: 0 0 40%;
+		max-width: 40%;
     }
 }
 
@@ -145,6 +187,10 @@
 	font-size: 12px;
 	text-transform: uppercase;
 	background-color: $orange;
+
+	@include mq($sm) {
+        font-size: 10px;
+    }
 }
 
 .product-item__tag--action {
@@ -157,6 +203,11 @@
 
 .product-item__info {
 	padding: 15px;
+
+	@include mq($sm) {
+		flex: 0 0 60%;
+		max-width: 60%;
+    }
 }
 
 .product-item__name,

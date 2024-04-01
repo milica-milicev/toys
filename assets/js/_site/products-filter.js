@@ -7,6 +7,7 @@ const ProductsFilter = {
         let isFiltering = false;
         let currentPage = 1;
         let maxPages = parseInt(themeLocal.maxPages) || 1;
+        const filters = document.querySelector('.js-filters');
 
         function showLoader() {
             loader.style.display = 'block';
@@ -65,6 +66,11 @@ const ProductsFilter = {
                 top: productsPosition,
                 behavior: 'smooth'
             });
+
+            // for mobile views when filters are active and over the page
+            if (filters.classList.contains('is-active')) {
+                filters.classList.remove('is-active');
+            }
         }));
 
 

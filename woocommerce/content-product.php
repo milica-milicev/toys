@@ -32,10 +32,11 @@ if ( empty( $product ) || ! $product->is_visible() ) {
 		 *
 		 * @hooked woocommerce_template_loop_product_link_open - 10
 		 */
-		do_action( 'woocommerce_before_shop_loop_item' ); ?>
+		//do_action( 'woocommerce_before_shop_loop_item' ); ?>
 
 		<div class="product-item__img">
 			<?php
+			woocommerce_template_loop_product_link_open();
 			/**
 			 * Hook: woocommerce_before_shop_loop_item_title.
 			 *
@@ -43,6 +44,8 @@ if ( empty( $product ) || ! $product->is_visible() ) {
 			 * @hooked woocommerce_template_loop_product_thumbnail - 10
 			 */
 			do_action( 'woocommerce_before_shop_loop_item_title' ); 
+
+			woocommerce_template_loop_product_link_close();
 			?>
 		</div>
 

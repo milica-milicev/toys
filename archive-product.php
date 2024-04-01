@@ -74,51 +74,60 @@ do_action( 'woocommerce_before_main_content' );
 		<div class="products__main-container">
 			<div class="products__aside">
 
-				<?php
-				$current_category = get_queried_object();
-				$product_categories = get_terms('product_cat', array(
-					'orderby'    => 'name',
-					'order'      => 'ASC',
-					'hide_empty' => false,
-				));
-
-				// Product categories
-				if (!empty($product_categories) && !is_wp_error($product_categories)) : ?>
-					<div class="filter">
-						<h3 class="filter__title">Kategorije</h3>
-						<ul>
-							<li class="filter__item <?php if (is_shop()) echo 'filter__active-item'; ?>">
-								<a href="<?php echo esc_url(wc_get_page_permalink('shop')); ?>" class="filter__item-link">Sve Igračke</a>
-							</li>
-							<?php foreach ($product_categories as $category) : ?>
-								<?php $class = ($current_category instanceof WP_Term && $current_category->term_id === $category->term_id) ? 'filter__active-item' : ''; ?>
-								<li class="filter__item <?php echo $class; ?>">
-									<a href="<?php echo esc_url(get_term_link($category)); ?>" class="filter__item-link">
-										<?php echo esc_html($category->name); ?>
-									</a>
-								</li>
-							<?php endforeach; ?>
-						</ul>
-					</div>
-				<?php endif; ?>
-
-				<!-- Age -->
-				<div class="filter">
-					<h3 class="filter__title">Uzrast</h3>
-					<div class="filter__options">
-						<?php // Prikazivanje filtera za uzrast
-						$age_ranges = get_field_object('field_65f94e27961f5'); // 'field_key'
-		
-						if ($age_ranges && isset($age_ranges['choices'])) :
-							foreach ($age_ranges['choices'] as $key => $value) : ?>
-								<label class="checkbox">
-									<?php echo esc_html($value); ?>
-									<input class="js-filter-option" type="checkbox" name="age_range" value="<?php echo esc_attr($key); ?>">
-									<span class="checkbox__checkmark font-checkmark"></span>
-								</label>
+				<div class="filters">
+					<button class="filters__toggle js-filters-toggle">Filteri <span class="font-chevron-down"></span></button>
+				
+					<div class="filters__wrap js-filters">
+						<div class="filters__inner">
+							<span class="filters__close js-filters-close"><span class="font-close"></span></span>
 							<?php
-							endforeach;
-						endif; ?>
+							$current_category = get_queried_object();
+							$product_categories = get_terms('product_cat', array(
+								'orderby'    => 'name',
+								'order'      => 'ASC',
+								'hide_empty' => false,
+							));
+
+							// Product categories
+							if (!empty($product_categories) && !is_wp_error($product_categories)) : ?>
+								<div class="filter">
+									<h3 class="filter__title">Kategorije</h3>
+									<ul>
+										<li class="filter__item <?php if (is_shop()) echo 'filter__active-item'; ?>">
+											<a href="<?php echo esc_url(wc_get_page_permalink('shop')); ?>" class="filter__item-link">Sve Igračke</a>
+										</li>
+										<?php foreach ($product_categories as $category) : ?>
+											<?php $class = ($current_category instanceof WP_Term && $current_category->term_id === $category->term_id) ? 'filter__active-item' : ''; ?>
+											<li class="filter__item <?php echo $class; ?>">
+												<a href="<?php echo esc_url(get_term_link($category)); ?>" class="filter__item-link">
+													<?php echo esc_html($category->name); ?>
+												</a>
+											</li>
+										<?php endforeach; ?>
+									</ul>
+								</div>
+							<?php endif; ?>
+
+							<!-- Age -->
+							<div class="filter">
+								<h3 class="filter__title">Uzrast</h3>
+								<div class="filter__options">
+									<?php // Prikazivanje filtera za uzrast
+									$age_ranges = get_field_object('field_65f94e27961f5'); // 'field_key'
+					
+									if ($age_ranges && isset($age_ranges['choices'])) :
+										foreach ($age_ranges['choices'] as $key => $value) : ?>
+											<label class="checkbox">
+												<?php echo esc_html($value); ?>
+												<input class="js-filter-option" type="checkbox" name="age_range" value="<?php echo esc_attr($key); ?>">
+												<span class="checkbox__checkmark font-checkmark"></span>
+											</label>
+										<?php
+										endforeach;
+									endif; ?>
+								</div>
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>
