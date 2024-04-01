@@ -49,13 +49,6 @@ const QtyCounter = {
                 checkIfCartHasChanged(); // Proveri promene nakon unos preko tastature
             }
         });
-		
-		document.body.addEventListener('added_to_cart', function() {
-                var miniCart = document.getElementById('mini-cart');
-                if (miniCart.style.display === 'none' || miniCart.style.display === '') {
-                    miniCart.style.display = 'block';
-                }
-            });
     }
 };
 

@@ -28,7 +28,7 @@ if ( ! $checkout->is_registration_enabled() && $checkout->is_registration_requir
 }
 
 ?>
-<div class="checkout">
+<div class="checkout__main">
 	<div class="container container--sm">
 		<form name="checkout" method="post" class="checkout__form light-form" action="<?php echo esc_url( wc_get_checkout_url() ); ?>" enctype="multipart/form-data">
 			<div class="checkout__form-container">	
