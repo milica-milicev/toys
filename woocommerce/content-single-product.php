@@ -67,7 +67,15 @@ global $product;
 				</div>
 			</div>
 		</div>
-		
+
+		<div class="product__main-content">
+			<div class="container">
+				<span class="product__main-content-title">Opis i dodatne informacije</span>
+				<div class="product__main-content-wrap entry-content">
+					<?php the_content(); ?>
+				</div>
+			</div>
+		</div>
 
 		<?php
 		/**

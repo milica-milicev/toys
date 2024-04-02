@@ -108,6 +108,31 @@ const Sliders = {
 			productMain.slideTo(productThumbs.activeIndex);
 		});
 
+		var galleryTop = new Swiper('.gallery-top', {
+			spaceBetween: 10,
+			navigation: {
+				nextEl: '.swiper-button-next',
+				prevEl: '.swiper-button-prev',
+			},
+			on: {
+				init: function () {
+					// Postavite početni slajd, modal i ostale potrebne stvari kada se Swiper inicijalizuje
+				}
+			}
+		});
+
+		document.querySelector('.js-product-main').addEventListener('click', function(e) {
+            e.preventDefault(); // Sprečava defaultno ponašanje ako je potrebno
+            var clickedSlideIndex = productMain.activeIndex; // Dobiće indeks trenutno aktivnog slajda
+            // Ovde prenesite slike iz glavnog Swipera u Swiper unutar modalnog prozora
+            // Možete to uraditi kopiranjem HTML-a slajdova ili prenosom putanja slika i kreiranjem novih slajdova
+            galleryTop.update(); // Osvežite Swiper u modalnom prozoru
+            galleryTop.slideTo(clickedSlideIndex, 0); // Pređite na slajd koji je bio aktivan
+           // document.getElementById('galleryModal').style.display = 'block'; // Prikažite modalni prozor
+			document.getElementById('galleryModal').classList.add('visible');
+        });
+		
+
 
 	}
 };

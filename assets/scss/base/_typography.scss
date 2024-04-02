@@ -9,8 +9,8 @@ optgroup,
 textarea {
 	font-family: $font-main;
 	color: $black;
-	font-size: 16px;
-	line-height: 1.5;
+	@include clamp-font-size(14, 16);
+	line-height: 1.45;
 }
 
 pre {
@@ -74,39 +74,35 @@ pre {
 
 	h1 {
 		@include clamp-font-size(20, 33);
-		margin-bottom: clamp(1.25rem, 1rem + 1.25vw, 2rem);
+		margin-bottom: clamp(1rem, 0.8rem + 1vw, 2rem);
 	}
 
 	h2 {
 		@include clamp-font-size(18, 34);
-		margin-bottom: clamp(1.25rem, 1.0625rem + 0.9375vw, 2rem);
+		margin-bottom: clamp(1rem, 0.8rem + 1vw, 2rem);
 	}
 
 	h3,
 	h4,
 	h5,
 	h6 {
-		@include clamp-font-size(16, 24);
-		margin-bottom: clamp(1.25rem, 1.125rem + 0.625vw, 2rem);
+		@include clamp-font-size(16, 22);
+		margin-bottom: clamp(1rem, 0.9rem + 0.5vw, 1.5rem);
 	}
 
 	p {
 		@include clamp-font-size(14, 16);
 		font-family: $font-main;
 		color: $black;
-		line-height: 1.3;
-		margin-bottom: clamp(1rem, 1.125rem + 0.625vw, 1.5rem);
-
-		&:last-of-type {
-			margin-bottom: 0;
-		}
+		line-height: 1.45;
+		margin-bottom: clamp(1rem, 0.94rem + 0.3vw, 1.3rem);
 	}
 
 	blockquote {
 		border-left: 2px solid $black;
 		padding-left: 27px;
 		position: relative;
-		margin-bottom: clamp(1rem, 1.125rem + 0.625vw, 1.5rem);
+		margin-bottom: clamp(1rem, 0.9rem + 0.5vw, 1.5rem);
 
 		&::before {
 			content: '“';
@@ -144,17 +140,19 @@ pre {
 			content: '';
 			background-color: $black;
 			display: block;
-			width: 6px;
-			height: 6px;
+			width: 5px;
+			height: 5px;
 			border-radius: 50%;
 			position: absolute;
-			top: 10px;
+			top: 8px;
 			left: 0;
 		}
 	}
 
 	ul,
 	ol {
+		margin-bottom: clamp(1rem, 0.94rem + 0.3vw, 1.3rem);
+
 		li {
 			margin-bottom: 6px;
 
@@ -165,13 +163,18 @@ pre {
 	}
 
 	ol {
-		margin-left: 17px;
+		margin-left: 12px;
 
 		li {
 			list-style: decimal;
+			padding-left: 7px;
 
 			&::before {
 				display: none;
+			}
+
+			&::marker {
+				font-size: 12px;
 			}
 		}
 	}

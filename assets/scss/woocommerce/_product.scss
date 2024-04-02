@@ -13,12 +13,24 @@
     display: flex;
     flex-wrap: wrap;
     margin: 0 -10px;
+
+	@include mq($sm) {
+        display: block;
+		margin: 0;
+	}
 }
 
 .product__main-gallery {
     flex: 0 0 50%;
     max-width: 50%;
     padding: 0 10px;
+
+	@include mq($sm) {
+        flex: 0 0 100%;
+		padding: 0;
+		max-width: 100%;
+		margin-bottom: 25px;
+	}
 }
 
 .product__gallery-main-slider-wrap {
@@ -68,6 +80,10 @@
     }
 }
 
+.product__gallery-main-thumbs {
+	overflow: hidden;
+}
+
 .product__gallery-main-thumbs-img {
 	opacity: 0.7;
 	cursor: pointer;
@@ -86,6 +102,12 @@
     flex: 0 0 50%;
     max-width: 50%;
     padding: 0 10px;
+
+	@include mq($sm) {
+        flex: 0 0 100%;
+		max-width: 100%;
+		padding: 0;
+	}
 }
 
 .product__title {
@@ -98,7 +120,7 @@
 	margin-bottom: 20px;
 
 	span {
-		@include clamp-font-size(17, 26);
+		@include clamp-font-size(15, 26);
 		font-weight: bold;
 	}
 
@@ -132,3 +154,91 @@
 		}
 	}
 }
+
+.product__main-content {
+	padding: 30px 0 45px;
+
+	@include mq($sm) {
+        padding: 15px 0 20px;
+	}
+}
+
+.product__main-content-title {
+	color: $grey;
+	@include clamp-font-size(14, 16);
+    text-transform: uppercase;
+    border: 1px solid $white-smoke;
+    padding: 10px;
+    margin-bottom: 20px;
+    display: inline-block;
+}
+
+.product__main-content-wrap {
+	max-width: 1000px;
+}
+
+
+/* Osnovni stil za modalni prozor */
+#galleryModal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 1050;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    visibility: hidden; /* Skriven po defaultu, menjajte u "visible" da prikažete */
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+/* Kontejner unutar modalnog prozora za sadržaj */
+.gallery-modal-content {
+    position: relative;
+    margin: auto;
+    max-height: 80%; /* Maksimalna visina sadržaja */
+    overflow: hidden; /* Sakriva prekoračeni sadržaj */
+}
+
+.product__gallery-modal-slider-img {
+	img {
+		margin: 0 auto;
+	}
+}
+
+/* Stil za navigacione dugmiće (sledeći, prethodni) */
+.gallery-modal-content .swiper-button-next,
+.gallery-modal-content .swiper-button-prev {
+    position: absolute;
+    top: 50%;
+    width: auto;
+    padding: 10px;
+    margin-top: -22px;
+    color: $white;
+    font-weight: bold;
+    font-size: 15px;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+}
+
+.gallery-modal-content .swiper-button-next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+}
+
+.gallery-modal-content .swiper-button-prev {
+    left: 0;
+    border-radius: 0 3px 3px 0;
+}
+
+/* Prikazuje modal kada je aktivan */
+#galleryModal.visible {
+    visibility: visible;
+    opacity: 1;
+}
+
+/* Možda će vam trebati dodatni stilovi za sadržaj, tekst, dugmad za zatvaranje itd. */

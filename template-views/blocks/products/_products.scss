@@ -8,18 +8,21 @@
 }
 
 .products {
-	padding: 60px 0;
+	padding: 45px 0;
 	background-color: $white-smoke;
 	margin: 0 30px;
 	border-radius: 10px;
 
+	.product & {
+		margin-bottom: 30px;
+	}
+
 	@include mq($md) {
-        padding: 45px 0;
+        padding: 30px 0;
 		margin: 0 15px;
     }
 
 	@include mq($sm) {
-        padding: 45px 0;
 		margin: 0;
     }
 }
@@ -27,7 +30,7 @@
 .products--alt {
 	background-color: transparent;
 	margin: 0;
-	border-radius: none;
+	border-radius: 0;
 
 	@include mq($md) {
 		margin: 0;

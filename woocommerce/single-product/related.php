@@ -21,7 +21,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 if ( $related_products ) : ?>
 
-	<div class="products products--alt">
+	<div class="products">
 		<div class="container">
 			<?php
 			$heading = apply_filters( 'woocommerce_product_related_products_heading', __( 'Možda te i ovo zanima', 'woocommerce' ) );

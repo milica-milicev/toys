@@ -83,9 +83,9 @@ do_action( 'woocommerce_before_main_content' );
 							<?php
 							$current_category = get_queried_object();
 							$product_categories = get_terms('product_cat', array(
-								'orderby'    => 'name',
 								'order'      => 'ASC',
 								'hide_empty' => false,
+								'exclude'    => array(16) // Uncategorized category ID
 							));
 
 							// Product categories

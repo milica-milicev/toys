@@ -4,13 +4,21 @@
 	border-radius: 10px;
 
 	@include mq($md) {
-       margin: 0 15px 20px;
-	   padding-top: 60px;
+		margin: 0 15px 20px;
+		padding-top: 60px;
+
+		&.hero--alt {
+			padding-top: 0;
+		}
     }
 
 	@include mq($sm) {
 		padding-top: 40px;
-	 }
+
+		&.hero--alt {
+			padding-top: 0;
+		}
+	}
 }
 
 .hero__container {
