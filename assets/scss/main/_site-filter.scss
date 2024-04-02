@@ -4,10 +4,27 @@
 --------------------------------------------------------------*/
 .filters__toggle {
     display: none;
+    width: 100%;
+    color: $white;
+    background-color: $orange;
+    padding: 10px 15px;
+    border-radius: 10px;
+    font-weight: bold;
+    font-size: 16px;
+    max-width: 400px;
+    margin: 0 auto 20px;
+    position: relative;
 
     @include mq($sm) {
         display: block;
     }
+}
+
+.filters__toggle-icon {
+    font-size: 20px;
+    position: absolute;
+    right: 15px;
+    top: 8px;
 }
 
 .filters__wrap {

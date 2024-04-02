@@ -19,6 +19,17 @@ const FiltersToggle = {
 				e.preventDefault();
 				filters.classList.remove('is-active');
 			});
+
+			// Dodajte event listener na document za osluškivanje keydown događaja
+			document.addEventListener('keydown', function(event) {
+				// Proverite da li je pritisnut taster 'Esc'
+				if (event.key === "Escape") {
+					// Proverite da li je modal trenutno vidljiv pre nego što ga pokušate zatvoriti
+					if (filters.classList.contains('is-active')) {
+						filters.classList.remove('is-active');
+					}
+				}
+			});
 		}
 	}
 };

@@ -58,21 +58,22 @@ $attachment_ids = $product->get_gallery_image_ids();
 
 <!-- Modal za prikazivanje velikih slika -->
 <?php if ( ! empty( $attachment_ids ) && count( $attachment_ids ) > 0 ) : ?>
-<div id="galleryModal">
-    <div class="gallery-modal-content">
-        <div class="swiper-container gallery-top">
-            <!-- Mesto za slider slike -->
-            <div class="swiper-wrapper">
+<div class="product__gallery-modal js-product-gallery-modal">
+	<span class="product__gallery-modal-overlay js-product-gallery-modal-overlay"></span>
+	<span class="product__gallery-modal-close-btn js-product-gallery-modal-close-btn"><span class="font-close"></span></span>
+    <div class="product__gallery-modal-inner js-product-gallery-modal-inner">
+        <div class="product__gallery-modal-slider js-product-gallery-modal-slider">
+			<div class="swiper-wrapper">
 				<?php foreach ( $attachment_ids as $attachment_id ) : ?>
 					<div class="swiper-slide product__gallery-modal-slider-img">
 						<?php echo wp_get_attachment_image( $attachment_id, 'woocommerce_single' ); ?>
 					</div>
 				<?php endforeach; ?>
-            </div>
-            <!-- Add Arrows -->
-            <div class="swiper-button-next"></div>
-            <div class="swiper-button-prev"></div>
-        </div>
+			</div>
+		</div>
+		<!-- Add Arrows -->
+		<div class="swiper-button-prev js-product-modal-prev-btn"></div>
+		<div class="swiper-button-next js-product-modal-next-btn"></div>
     </div>
 </div>
 <?php endif; ?>

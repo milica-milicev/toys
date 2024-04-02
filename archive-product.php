@@ -75,7 +75,7 @@ do_action( 'woocommerce_before_main_content' );
 			<div class="products__aside">
 
 				<div class="filters">
-					<button class="filters__toggle js-filters-toggle">Filteri <span class="font-chevron-down"></span></button>
+					<span class="filters__toggle js-filters-toggle">Filteri <span class="font-filter filters__toggle-icon"></span></span>
 				
 					<div class="filters__wrap js-filters">
 						<div class="filters__inner">

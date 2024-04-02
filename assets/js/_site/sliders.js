@@ -108,32 +108,43 @@ const Sliders = {
 			productMain.slideTo(productThumbs.activeIndex);
 		});
 
-		var galleryTop = new Swiper('.gallery-top', {
+		// Custom fancybox - Product gallery slider in modal window
+		const productMainSlider = document.querySelector('.js-product-main');
+		const galleryModalSliderSel = document.querySelector('.js-product-gallery-modal');
+		const modalCloseBtn = document.querySelector('.js-product-gallery-modal-close-btn');
+
+		var galleryModalSlider = new Swiper('.js-product-gallery-modal-slider', {
 			spaceBetween: 10,
 			navigation: {
-				nextEl: '.swiper-button-next',
-				prevEl: '.swiper-button-prev',
-			},
-			on: {
-				init: function () {
-					// Postavite početni slajd, modal i ostale potrebne stvari kada se Swiper inicijalizuje
-				}
+				nextEl: '.js-product-modal-next-btn',
+				prevEl: '.js-product-modal-prev-btn',
 			}
 		});
 
-		document.querySelector('.js-product-main').addEventListener('click', function(e) {
-            e.preventDefault(); // Sprečava defaultno ponašanje ako je potrebno
-            var clickedSlideIndex = productMain.activeIndex; // Dobiće indeks trenutno aktivnog slajda
-            // Ovde prenesite slike iz glavnog Swipera u Swiper unutar modalnog prozora
-            // Možete to uraditi kopiranjem HTML-a slajdova ili prenosom putanja slika i kreiranjem novih slajdova
-            galleryTop.update(); // Osvežite Swiper u modalnom prozoru
-            galleryTop.slideTo(clickedSlideIndex, 0); // Pređite na slajd koji je bio aktivan
-           // document.getElementById('galleryModal').style.display = 'block'; // Prikažite modalni prozor
-			document.getElementById('galleryModal').classList.add('visible');
-        });
+		if (productMainSlider) {
+			productMainSlider.addEventListener('click', function(e) {
+				e.preventDefault();
+				var clickedSlideIndex = productMain.activeIndex;
+				galleryModalSlider.update();
+				galleryModalSlider.slideTo(clickedSlideIndex, 0);
+				galleryModalSliderSel.classList.add('is-visible');
+			});
 		
-
-
+			modalCloseBtn.addEventListener('click', function() {
+				galleryModalSliderSel.classList.remove('is-visible');
+			});
+			
+			// Dodajte event listener na document za osluškivanje keydown događaja
+			document.addEventListener('keydown', function(event) {
+				// Proverite da li je pritisnut taster 'Esc'
+				if (event.key === "Escape") {
+					// Proverite da li je modal trenutno vidljiv pre nego što ga pokušate zatvoriti
+					if (galleryModalSliderSel.classList.contains('is-visible')) {
+						galleryModalSliderSel.classList.remove('is-visible');
+					}
+				}
+			});
+		}
 	}
 };
 

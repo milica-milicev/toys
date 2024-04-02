@@ -43,20 +43,23 @@
 	@if $filename == face {
 		$char: "\E007";
 	}
-	@if $filename == insta {
+	@if $filename == filter {
 		$char: "\E008";
 	}
-	@if $filename == mail {
+	@if $filename == insta {
 		$char: "\E009";
 	}
-	@if $filename == phone {
+	@if $filename == mail {
 		$char: "\E00A";
 	}
-	@if $filename == search {
+	@if $filename == phone {
 		$char: "\E00B";
 	}
-	@if $filename == tik_tok {
+	@if $filename == search {
 		$char: "\E00C";
+	}
+	@if $filename == tik_tok {
+		$char: "\E00D";
 	}
 
 	@return $char;
@@ -93,6 +96,9 @@
 }
 .font-face {
 	@include font(face);
+}
+.font-filter {
+	@include font(filter);
 }
 .font-insta {
 	@include font(insta);

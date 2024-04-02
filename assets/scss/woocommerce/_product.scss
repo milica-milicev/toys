@@ -50,7 +50,6 @@
 			width: 40px;
 			color: $white;
 			background-color: $fire-bush;
-			font-weight: bold;
 			transition: $dur $ease;
 
 			@include hover {
@@ -60,6 +59,10 @@
 			&::after {
 				font-size: 12px;
 			}
+
+			&.swiper-button-disabled {
+				pointer-events: auto;
+			}
 		}
 
 		&-prev {
@@ -67,6 +70,10 @@
 			margin-left: 5px;
 		}
 	}
+}
+
+.product__gallery-main-slider {
+	cursor: zoom-in;
 }
 
 .product__gallery-main-slider-img,
@@ -179,28 +186,63 @@
 
 
 /* Osnovni stil za modalni prozor */
-#galleryModal {
+.product__gallery-modal {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.8);
+    background-color: rgba($black, 0.8);
     z-index: 1050;
     display: flex;
     align-items: center;
     justify-content: center;
     visibility: hidden; /* Skriven po defaultu, menjajte u "visible" da prikažete */
     opacity: 0;
-    transition: opacity 0.3s ease-in-out;
+    transition: $dur $ease;
+
+	&.is-visible {
+		visibility: visible;
+		opacity: 1;
+	}
 }
 
 /* Kontejner unutar modalnog prozora za sadržaj */
-.gallery-modal-content {
+.product__gallery-modal-inner {
     position: relative;
     margin: auto;
     max-height: 80%; /* Maksimalna visina sadržaja */
     overflow: hidden; /* Sakriva prekoračeni sadržaj */
+
+	.swiper-button {
+		&-prev,
+		&-next {
+			position: absolute;
+			border-radius: 50%;
+			top: 50%;
+			left: 100%;
+			margin-left: -50px;
+			transform: translateY(50%);
+			height: 40px;
+			width: 40px;
+			color: $white;
+			background-color: rgba($black, 0.4);
+			transition: $dur $ease;
+
+			@include hover {
+				background-color: $black;
+			}
+
+			&::after {
+				font-size: 18px;
+			}
+		}
+
+		&-prev {
+			left: 0;
+			margin-left: 10px;
+		}
+	}
 }
 
 .product__gallery-modal-slider-img {
@@ -209,36 +251,22 @@
 	}
 }
 
-/* Stil za navigacione dugmiće (sledeći, prethodni) */
-.gallery-modal-content .swiper-button-next,
-.gallery-modal-content .swiper-button-prev {
-    position: absolute;
-    top: 50%;
-    width: auto;
-    padding: 10px;
-    margin-top: -22px;
-    color: $white;
-    font-weight: bold;
-    font-size: 15px;
-    transition: 0.6s ease;
-    border-radius: 0 3px 3px 0;
-    user-select: none;
-}
+.product__gallery-modal-close-btn {
+	position: absolute;
+	top: 0;
+	right: 0;
+	color: $white;
+	width: 50px;
+	height: 50px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background-color: rgba($black, 0.4);
+	font-size: 20px;
+	transition: $dur $ease;
+	cursor: pointer;
 
-.gallery-modal-content .swiper-button-next {
-    right: 0;
-    border-radius: 3px 0 0 3px;
+	@include hover {
+		background-color: rgba($white, 0.05);
+	}
 }
-
-.gallery-modal-content .swiper-button-prev {
-    left: 0;
-    border-radius: 0 3px 3px 0;
-}
-
-/* Prikazuje modal kada je aktivan */
-#galleryModal.visible {
-    visibility: visible;
-    opacity: 1;
-}
-
-/* Možda će vam trebati dodatni stilovi za sadržaj, tekst, dugmad za zatvaranje itd. */

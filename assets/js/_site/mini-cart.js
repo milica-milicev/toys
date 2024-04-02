@@ -16,7 +16,6 @@ const MiniCart = {
                 miniCart.style.display = 'none';
             }
         });
-        
     }
 };
 
