@@ -5,9 +5,15 @@
 			<!-- <span class="recente-post__item-image-tag">Edukacija</span> -->
 		</div>
 		<h4 class="recente-post__item-title"><?php the_title(); ?></h4>
-		<p class="recente-post__item-desc"><?php the_excerpt(); ?></p>
 		<div class="recente-post__item-btn">
-			<span class="btn">Pročitajte više</span>
+			<?php
+				if ($post->post_type == 'product') :
+					$read_more_text = 'Pogledajte proizvod';
+				else :
+					$read_more_text = 'Pročitajte više';
+				endif; 
+			?>
+			<span class="btn"><?php echo $read_more_text; ?></span>
 		</div>
 	</a>
 </div>

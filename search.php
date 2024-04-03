@@ -26,35 +26,38 @@ get_header();
 				</div>
 			</div>
 
-			<?php
-			/* Start the Loop */
-			while ( have_posts() ) :
-				the_post();
+			<div class="recente-posts">
+				<div class="container">
+					<div class="recente-posts__container">
+						<?php
+						/* Start the Loop */
+						while ( have_posts() ) :
+							the_post();
 
-				if ($post->post_type == 'product') :
-					get_template_part( 'woocommerce/content-product' );
-				else :
-					get_template_part( 'template-views/blocks/search/search' );
-				endif;
 
-				/**
-				 * Run the loop for the search to output the results.
-				 * If you want to overload this in a child theme then include a file
-				 * called content-search.php and that will be used instead.
-				 */
-				
+								get_template_part( 'template-views/blocks/search-block/search-block' );
+					
 
-			endwhile;
+							/**
+							 * Run the loop for the search to output the results.
+							 * If you want to overload this in a child theme then include a file
+							 * called content-search.php and that will be used instead.
+							 */
+							
 
-			the_posts_navigation();
+						endwhile; ?>
+					</div>
 
-		else :
+					<?php the_posts_navigation(); ?>
+				</div>
+			</div>
+
+		<?php else :
 
 			get_template_part( 'template-parts/content', 'none' );
 
 		endif;
 		?>
-
 	</main><!-- #main -->
 
 <?php
