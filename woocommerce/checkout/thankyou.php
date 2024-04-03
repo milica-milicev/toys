@@ -42,7 +42,7 @@ defined( 'ABSPATH' ) || exit;
 
 				<?php wc_get_template( 'checkout/order-received.php', array( 'order' => $order ) ); ?>
 
-				<ul class="woocommerce-order-overview woocommerce-thankyou-order-details order_details">
+				<ul class="order-details__main-info-list woocommerce-order-overview woocommerce-thankyou-order-details order_details">
 
 					<li class="woocommerce-order-overview__order order">
 						<?php esc_html_e( 'Order number:', 'woocommerce' ); ?>
@@ -81,6 +81,9 @@ defined( 'ABSPATH' ) || exit;
 		</div>
 		<div class="order-details__products-info">
 			<?php do_action( 'woocommerce_thankyou', $order->get_id() ); ?>
+		</div>
+		<div class="order-details__footer">
+			<a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="btn">Povratak na početnu stranicu</a>
 		</div>
 	<?php else : ?>
 

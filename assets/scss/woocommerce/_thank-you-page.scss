@@ -7,14 +7,23 @@
     padding: 0 15px;
 }
 
+.order-details__main-title {
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+    margin: 20px 0;
+}
+
 .order-details__products-info {
     background-color: $white-smoke;
     border-radius: 10px;
     padding: 20px;
+    margin: 20px 0;
 }
 
 .order-details__main-info {
     margin-bottom: 20px;
+    text-align: center;
 
     .woocommerce-notice {
         font-weight: bold;
@@ -24,9 +33,15 @@
 }
 
 .order-details__title {
-    font-size: 20px;
+    font-size: 18px;
     font-weight: bold;
     margin-bottom: 10px;
+}
+
+.order-details__main-info-list {
+    li {
+        margin-bottom: 6px;
+    }
 }
 
 .order-details__products {
@@ -116,4 +131,8 @@
 .order-details__total-price {
     text-align: right;
     font-weight: bold;
+}
+
+.order-details__footer {
+    text-align: center;
 }
