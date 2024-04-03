@@ -15,7 +15,7 @@
  * @version 7.9.0
  */
 
-defined( 'ABSPATH' ) || exit;
+defined( 'ABSPATH' ) || exit; 
 
 do_action( 'woocommerce_before_cart' ); ?>
 

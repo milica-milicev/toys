@@ -64,6 +64,10 @@
 	span {
 		color: $robin-blue;
 	}
+
+	.hero__content--sm & {
+		margin-bottom: 0;
+	}
 }
 
 .hero__content-desc {

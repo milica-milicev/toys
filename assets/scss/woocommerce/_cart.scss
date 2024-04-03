@@ -309,3 +309,24 @@
         }
     }
 }
+
+// empty cart
+.woocommerce-cart {
+    .site-content {
+        margin: 30px 0;
+    }
+
+    .wc-empty-cart-message {
+        margin-bottom: 30px;
+    }
+
+    .cart-empty {
+        justify-content: center;
+        font-size: 16px;
+        padding: 20px 10px;
+    }
+
+    .return-to-shop {
+        text-align: center;
+    }
+}
