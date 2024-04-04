@@ -2,7 +2,7 @@
 	<div class="container">
 		<div class="section-head">
 			<h1 class="section-head__title">Igračke na akciji</h1>
-			<p class="section-head__subtitle">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+			<p class="section-head__subtitle">Možda je baš ono što tražite sada na popustu!</p>
 		</div>
 		<div class="products__container">
 		<div class="product-item">

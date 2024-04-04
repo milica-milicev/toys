@@ -52,14 +52,6 @@
     }
 }
 
-.footer-item__mail {
-	transition: $dur $ease;
-
-	@include hover {
-		opacity: .5;
-	}
-}
-
 .footer-item-media {
 	display: flex;
 	align-items: center;
@@ -67,18 +59,9 @@
 	margin-top: 15px;
 }
 
-.footer-item-media__face {
-	@include font(face);
+.footer-item-media a {
 	transition: $dur $ease;
-
-	@include hover {
-		opacity: .5;
-	}
-}
-
-.footer-item-medai-insta {
-	@include font(insta);
-	transition: $dur $ease;
+	font-size: 20px;
 
 	@include hover {
 		opacity: .5;

@@ -1,0 +1,32 @@
+.single-post__image {
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 20px;
+
+    img {
+        height: 400px;
+        width: 100%;
+        object-fit: cover;
+    }
+}
+
+.single-post__content {
+    margin-bottom: 30px;
+}
+
+.single-post__date {
+    color: $grey;
+    font-style: italic;
+    font-size: 14px;
+    display: block;
+    margin-bottom: 15px;
+}
+
+.single-post__title {
+    font-family: $font-main;
+	color: $black;
+	line-height: 1.4;
+	font-weight: 700;
+	@include clamp-font-size(20, 32);
+	margin-bottom: 10px;
+}

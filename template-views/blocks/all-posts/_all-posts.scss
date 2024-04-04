@@ -1,39 +1,39 @@
-.blog__head {
-    padding: 50px 0;
-    max-width: 800px;
+.blog {
+    padding: 45px 0;
+	
+	@include mq($md) {
+        padding: 30px 0;
+    }
 }
 
-.blog__head-title {
-    margin-bottom: 10px;
-    font-weight: 600;
-    @include clamp-font-size(35, 64);
+.blog__container {
+    @include mq($sm) {
+        max-width: 400px;
+        margin: 0 auto;
+    }
 }
 
 .blog-item {
     display: flex;
-    margin-top: 50px;
+    margin-bottom: 50px;
     grid-gap: 40px;
 
     &:last-of-type {
         margin-bottom: 0;
     }
 
-    @include mq($md) {
+    @include mq($sm) {
         display: block;
     }
 }
 
-.blog__container {
-    margin-top: 150px;
-}
-
 .blog-item__img,
 .blog-item__content {
-    flex: 50%;
+    flex: 0 0 50%;
     max-width: 50%;
 
-    @include mq($md) {
-        flex: 100%;
+    @include mq($sm) {
+        flex: 0 0 100%;
         max-width: 100%;
     }
 }
@@ -41,14 +41,15 @@
 .blog-item__img {
     img {
         width: 100%;
-        max-height: 400px;
+        max-height: 330px;
 		border-radius: 10px;
 		object-fit: cover;
     }
 
-    @include mq($md) {
+    @include mq($sm) {
         img {
-            margin-bottom: 30px;
+            margin-bottom: 20px;
+            max-height: 250px;
         }
     }
 }
@@ -57,6 +58,10 @@
     display: flex;
     flex-direction: column;
     justify-content: space-around;
+
+    @include mq($sm) {
+        display: block;
+    }
 }
 
 .blog-item__content-wrap {
@@ -66,72 +71,10 @@
         font-weight: 600;
         line-height: 1.33;
     }
-
-    @include mq($md) {
-        margin-bottom: 30px;
-    }
-}
-
-.recente-blog-item {
-    margin-bottom: 50px;
-    // border-bottom: 1px solid $whisper;
-    padding-bottom: 50px;
-
-    img {
-        width: 100%;
-        max-height: 600px;
-        object-fit: cover;
-    }
-
-    @include mq($md) {
-        margin-bottom: 50px;
-    }
-}
-
-.recente-blog-item__content {
-    margin: 60px 0 20px;
-
-    @include mq($md) {
-        margin: 30px 0 20px;
-    }
-}
-
-.recente-blog-item-title {
-    @include clamp-font-size(24, 40);
-    // font-family: $font-second;
-    font-weight: 600;
-    max-width: 900px;
-    margin-bottom: 20px;
 }
 
 .blog-item__btn {
     .btn {
         font-weight: 600;
-    }
-}
-
-.pagination {
-    text-align: center;
-    padding: 50px;
-    display: flex;
-    justify-content: center;
-    grid-gap: 5px;
-
-    @include mq($md) {
-        padding-bottom: 50px;
-    }
-}
-
-.page-numbers {
-    // color: $gray;
-    padding: 10px 20px;
-    // border: 1px solid $gray;
-    border-radius: 4px;
-    display: block;
-    width: fit-content;
-
-    &.current {
-        color: $orange;
-        border: 1px solid $orange;
     }
 }

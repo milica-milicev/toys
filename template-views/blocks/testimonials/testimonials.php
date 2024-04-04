@@ -1,8 +1,8 @@
 <div class="testimonials">
 	<div class="container">
 		<div class="section-head">
-			<h2 class="section-head__title">Sta kažu o nama</h2>
-			<p class="section-head__subtitle">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+			<h2 class="section-head__title">Šta kažu roditelji</h2>
+			<p class="section-head__subtitle">Ovde možete videti komentare naših zadovoljnih kupaca:</p>
 		</div>
 		<div class="js-swiper-testimonials testimonials__container swiper">
 			<div class="swiper-wrapper">

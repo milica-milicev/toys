@@ -109,6 +109,8 @@ const Sliders = {
 		});
 
 		// Custom fancybox - Product gallery slider in modal window
+		const productGallery = document.querySelector('.js-product-gallery');
+		const productGalleryImg = document.querySelector('.js-gallery-main-img');
 		const productMainSlider = document.querySelector('.js-product-main');
 		const galleryModalSliderSel = document.querySelector('.js-product-gallery-modal');
 		const modalCloseBtn = document.querySelector('.js-product-gallery-modal-close-btn');
@@ -121,14 +123,21 @@ const Sliders = {
 			}
 		});
 
-		if (productMainSlider) {
-			productMainSlider.addEventListener('click', function(e) {
-				e.preventDefault();
-				var clickedSlideIndex = productMain.activeIndex;
-				galleryModalSlider.update();
-				galleryModalSlider.slideTo(clickedSlideIndex, 0);
-				galleryModalSliderSel.classList.add('is-visible');
-			});
+		if (productGallery) {
+			if (productMainSlider) {
+				productMainSlider.addEventListener('click', function(e) {
+					e.preventDefault();
+					var clickedSlideIndex = productMain.activeIndex;
+					galleryModalSlider.update();
+					galleryModalSlider.slideTo(clickedSlideIndex, 0);
+					galleryModalSliderSel.classList.add('is-visible');
+				});
+			} else {
+				productGalleryImg.addEventListener('click', function(e) {
+					e.preventDefault();
+					galleryModalSliderSel.classList.add('is-visible');
+				});
+			}
 		
 			modalCloseBtn.addEventListener('click', function() {
 				galleryModalSliderSel.classList.remove('is-visible');

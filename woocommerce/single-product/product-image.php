@@ -30,7 +30,7 @@ $post_thumbnail_id = $product->get_image_id();
 $attachment_ids = $product->get_gallery_image_ids();
 ?>
 
-<div class="product__gallery">
+<div class="product__gallery js-product-gallery">
 	<!-- Main slider images-->
 	<?php if ( ! empty( $attachment_ids ) && count( $attachment_ids ) > 0 ) : ?>
 		<div class="product__gallery-main-slider-wrap">
@@ -48,7 +48,7 @@ $attachment_ids = $product->get_gallery_image_ids();
 		</div>
     <?php else: ?>
         <!-- Main product image if gallery is empty -->
-        <div class="product__gallery-main-img">
+        <div class="product__gallery-main-img js-gallery-main-img">
             <?php echo wp_get_attachment_image( $post_thumbnail_id, 'woocommerce_single' ); ?>
         </div>
     <?php endif; ?>
@@ -57,18 +57,24 @@ $attachment_ids = $product->get_gallery_image_ids();
 </div>
 
 <!-- Modal za prikazivanje velikih slika -->
-<?php if ( ! empty( $attachment_ids ) && count( $attachment_ids ) > 0 ) : ?>
+
 <div class="product__gallery-modal js-product-gallery-modal">
 	<span class="product__gallery-modal-overlay js-product-gallery-modal-overlay"></span>
 	<span class="product__gallery-modal-close-btn js-product-gallery-modal-close-btn"><span class="font-close"></span></span>
     <div class="product__gallery-modal-inner js-product-gallery-modal-inner">
         <div class="product__gallery-modal-slider js-product-gallery-modal-slider">
 			<div class="swiper-wrapper">
+			<?php if ( ! empty( $attachment_ids ) && count( $attachment_ids ) > 0 ) : ?>
 				<?php foreach ( $attachment_ids as $attachment_id ) : ?>
 					<div class="swiper-slide product__gallery-modal-slider-img">
 						<?php echo wp_get_attachment_image( $attachment_id, 'woocommerce_single' ); ?>
 					</div>
 				<?php endforeach; ?>
+				<?php else : ?>
+					<div class="swiper-slide product__gallery-modal-slider-img">
+						<?php echo wp_get_attachment_image( $post_thumbnail_id, 'woocommerce_single' ); ?>
+					</div>
+				<?php endif; ?>
 			</div>
 		</div>
 		<!-- Add Arrows -->
@@ -76,5 +82,5 @@ $attachment_ids = $product->get_gallery_image_ids();
 		<div class="swiper-button-next js-product-modal-next-btn"></div>
     </div>
 </div>
-<?php endif; ?>
+
 

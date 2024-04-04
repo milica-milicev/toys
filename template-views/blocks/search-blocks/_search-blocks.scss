@@ -1,19 +1,19 @@
-.recente-posts {
-	padding: 45px 0;
+.search-blocks {
+	padding: 60px 0;
 	background-color: $white-smoke;
 	margin: 0 30px 40px;
 	border-radius: 10px;
 
 	@include mq($md) {
-        padding: 20px 0;
+        padding: 40px 0;
 		margin: 0 15px 20px;
     }
 }
 
-.recente-posts__container {
+.search-blocks__container {
 	margin-top: 80px;
 	display: flex;
-	flex-wrap: wrap;
+    flex-wrap: wrap;
 	justify-content: space-between;
 	margin: 0 -10px;
 
@@ -23,7 +23,7 @@
     }
 }
 
-.recente-post__item {
+.search-blocks__item {
 	flex: 0 0 33.3%;
 	max-width: 33.3%;
 	transition: $dur $ease;
@@ -40,7 +40,7 @@
     }
 }
 
-.recente-post__item-image {
+.search-blocks__item-image {
 	position: relative;
     height: 250px;
     border-radius: 10px;
@@ -61,46 +61,16 @@
     }
 }
 
-.recente-post__item-image-tag {
-	position: absolute;
-	left: 3%;
-	bottom: 5%;
-	padding: 5px 10px;
-	background-color: $eastern-blue;
-	text-transform: uppercase;
-	color: $white;
-	border-radius: 10px;
-	font-size: 12px;
-}
-
-.recente-post__item-title {
+.search-blocks__item-title {
 	@include clamp-font-size(18, 23);
 	font-weight: bold;
-	margin: 25px 0;
-
-	@include mq($md) {
-        margin: 15px 0 10px;
-    }
+	margin: 15px 0;
 }
 
-.recente-post__item-desc {
-	@include clamp-font-size(14, 15);
-	color: $grey;
-}
-
-.recente-post__item-btn {
+.search-blocks__item-btn {
 	margin-top: 22px;
 
 	.btn {
 		padding: 10px 15px;
 	}
-}
-
-.recente-posts__btn {
-	margin-top: 50px;
-	text-align: center;
-
-	@include mq($md) {
-        margin-top: 20px;
-    }
 }

@@ -1,7 +1,7 @@
 <div class="recente-posts">
 	<div class="container">
 		<div class="section-head">
-			<h2 class="section-head__title">Lorem Ipsum dollar</h2>
+			<h2 class="section-head__title">Najnoviji blog postovi:</h2>
 		</div>
 		<div class="recente-posts__container">
 			<div class="recente-post__item">
@@ -45,7 +45,7 @@
 			</div>
 		</div>
 		<div class="recente-posts__btn">
-			<a class="btn btn--sec" href="javascript:;">Pogledajte sve</a>
+			<a class="btn btn--sec" href="/blog">Pogledaj naš ceo blog</a>
 		</div>
 	</div>
 </div>

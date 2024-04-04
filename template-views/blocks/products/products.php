@@ -2,7 +2,7 @@
 	<div class="container">
 		<div class="section-head">
 			<h1 class="section-head__title">NAŠE NAJPRODAVANIJE IGRAČKE</h1>
-			<p class="section-head__subtitle">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+			<p class="section-head__subtitle">Najpopularniji izbor i najveći broj pozitivnih komentara i prodaja su ostvarile ove igračke:</p>
 		</div>
 		<div class="products__container">
 			<div class="product-item">
@@ -158,7 +158,7 @@
 				</div>
 			</div>
 			<div class="product__btn">
-				<a class="btn btn--sec" href="javascript:;">Pogledajte sve igracke</a>
+				<a class="btn btn--sec" href="/igracke">Pogledaj sve igracke</a>
 			</div>
 		</div>
 	</div>

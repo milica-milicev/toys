@@ -18,7 +18,7 @@ get_header();
 <div id="primary" class="content-area">
 	<main id="main" class="site-main" role="main">
 		<?php // get content blocks
-			get_template_part( 'template-views/blocks/hero/hero-alt' );
+			get_template_part( 'template-views/blocks/hero/hero-alt-blog' );
 			get_template_part( 'template-views/blocks/all-posts/all-posts' );
 		?>
 	</main>

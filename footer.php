@@ -18,21 +18,26 @@
 			<div class="footer-container">
 				<div class="footer-left footer-item">
 					<h5>Kontakt</h5>
-					<a class="footer-item__mail" href="mailto:svet.igranja@info.com">svet.igranja@info.com</a>
-					 <div class="footer-item-media">
-						<a href="javascript:;" class="footer-item-media__face"></a>
-						<a href="javascript:;" class="footer-item-medai-insta"></a>
-					 </div>
+					<ul>
+						<li><a href="mailto:svet.igranja@info.com">svet.igranja@info.com</a></li>
+						<li><a href="javascript:;">Kontaktiraj nas</a></li>
+					</ul>
+					<div class="footer-item-media">
+						<a href="javascript:;" class="font-face"></a>
+						<a href="javascript:;" class="font-insta"></a>
+						<a href="javascript:;" class="font-tik_tok"></a>
+					</div>
 				</div>
 				<div class="footer-center footer-item">
 					<h5>Informacije</h5>
 					<ul>
-						<li><a href="">Nedostaci i reklamacije</a></li>
-						<li><a href="">Način, uslovi i rokovi isporuke</a></li>
-						<li><a href="">Cene i načini plaćanja</a></li>
-						<li><a href="">Zaštita privatnosti</a></li>
-						<li><a href="">Uslovi kupovine robe</a></li>
-						<li><a href="">Podaci o firmi</a></li>
+						<li><a href="javascript:;">Nedostaci i reklamacije</a></li>
+						<li><a href="javascript:;">Način, uslovi i rokovi isporuke</a></li>
+						<li><a href="javascript:;">Cene i načini plaćanja</a></li>
+						<li><a href="javascript:;">Zaštita privatnosti</a></li>
+						<li><a href="javascript:;">Uslovi kupovine robe</a></li>
+						<li><a href="javascript:;">O nama</a></li>
+						<li><a href="javascript:;">Podaci o firmi</a></li>
 					</ul>
 				</div>
 				<div class="footer-right footer-item">

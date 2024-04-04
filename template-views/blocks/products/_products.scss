@@ -232,18 +232,21 @@
 }
 
 .product-item__price-new,
-.product-item .woocommerce-Price-amount {
-	@include clamp-font-size(18, 20);
+.product-item .woocommerce-Price-amount,
+.product-price {
+	@include clamp-font-size(17, 19);
 	font-weight: bold;
 	margin-right: 10px;
 }
 
-.product-item del {
+.product-item del,
+.product-price del {
 	color: $grey;
 }
 
 .product-item__price-old,
-.product-item del .woocommerce-Price-amount {
+.product-item del .woocommerce-Price-amount,
+.product-price del .woocommerce-Price-amount {
 	@include clamp-font-size(14, 15);
 	color: $grey;
 	font-weight: normal;
