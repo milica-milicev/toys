@@ -2,38 +2,72 @@
 	background-repeat: no-repeat;
 	background-position: center;
 	background-size: cover;
-	height: calc(100vh - 121px);
-	margin: 0 30px;
+	margin: 0 30px 30px;
 	border-radius: 10px;
 	display: flex;
 	align-items: center;
+	padding: 50px 0;
+
+	@include mq($md) {
+		margin: 0 0 30px;
+		border-radius: 0;
+		padding: 20px 0;
+	}
 }
 
 .form-box {
 	display: flex;
 	flex-wrap: wrap;
 	max-width: 920px;
+	width: calc(100% - 40px);
 	margin: 0 auto;
 	border-radius: 10px;
 	overflow: hidden;
+
+	@include mq($md) {
+		display: block;
+		width: calc(100% - 30px);
+	}
 }
 
 .form-box__left {
 	background-color: $fire-bush;
 	padding: 50px 30px;
-	flex: 60%;
+	flex: 0 0 60%;
 	max-width: 60%;
+
+	@include mq($md) {
+		padding: 30px 15px;
+		flex: 0 0 100%;
+		max-width: 100%;
+	}
+}
+
+.form-box__btn {
+	text-align: right;
 }
 
 .form-box__right {
 	flex: 40%;
 	max-width: 40%;
 	background-color: $white;
-	padding: 0 75px;
+	padding: 30px 15px;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
+
+	@include mq($md) {
+		flex: 0 0 100%;
+		max-width: 100%;
+	}
 }
+
+.form-box__right-phone,
+.form-box__right-email,
+.form-box__right-media {
+	width: 220px;
+	margin: 0 auto;
+} 
 
 .form-box__right-phone {
 	display: flex;
@@ -65,5 +99,9 @@
 
 .form-box__right-media-facebook {
 	@include font(face);
+}
+
+.form-box__right-media-tik-tok {
+	@include font(tik_tok);
 }
 

@@ -9,7 +9,9 @@
 				<input type="text" id="name" name="name" placeholder="Ime i prezime*">
 				<input type="email" id="email" name="email" placeholder="Email*">
 				<textarea id="subject" name="subject" placeholder="Poruka*" style="height:133px"></textarea>
-				<input type="submit" value="Pošaljite">
+				<div class="form-box__btn">
+					<input class="btn btn--white" type="submit" value="Pošaljite">
+				</div>
 			</form>
 		</div>
 		<div class="form-box__right">
@@ -29,6 +31,7 @@
 			<div class="form-box__right-media">
 				<a class="form-box__right-media-instagram" href="javascript:;"></a>
 				<a class="form-box__right-media-facebook" href="javascript:;"></a>
+				<a class="form-box__right-media-tik-tok" href="javascript:;"></a>
 			</div>
 		</div>
 	</div>
