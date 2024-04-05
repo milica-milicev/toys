@@ -19,7 +19,7 @@
 
 	@include hover {
 		color: $robin-blue;
-		border: 2px solid $robin-blue;
+		border-color: $robin-blue;
 		background-color: transparent;
 	}
 
@@ -34,7 +34,7 @@
 
 	@include hover {
 		color: $orange;
-		border: 2px solid $orange;
+		border-color: $orange;
 		background-color: transparent;
 	}
 }
@@ -62,7 +62,7 @@
 	color: $black;
 
 	@include hover {
-		border: 2px solid transparent;
+		border-color: transparent;
 		color: $white;
 		background-color: $black;
 	}

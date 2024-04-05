@@ -43,22 +43,23 @@ textarea {
 	border-radius: 10px;
 	margin-bottom: 20px;
 	box-sizing: border-box;
+	color: $white;
 
-	&:focus,
-	&:active {
-		border: 1px solid $black;
-	}
+	// &:focus,
+	// &:active {
+	// 	border: 1px solid $white-smoke;
+	// }
 
 	&::placeholder {
 		color: $white;
 	}
 
 	&:invalid {
-		border: 1px solid #dc3232;
-		background-color: $white;
+		border: 1px solid $red;
 	}
 
 	.light-form & {
+		color: $black;
 		border-color: $black;
 
 		&::placeholder {
@@ -79,6 +80,7 @@ abbr[title] {
 // inline form
 .inline-form {
 	position: relative;
+	margin-bottom: 7px;
 }
 
 .inline-form__field input {
@@ -93,10 +95,29 @@ abbr[title] {
 		border-color: $black;
 		color: $black;
 	}
+
+	.newsletter & {
+		background-color: $white;
+		color: $grey;
+
+		&:invalid {
+			border-color: $white;
+		}
+
+		&:focus,
+		&:active {
+			border-color: $white;
+			color: $grey;
+		}
+
+		&::placeholder {
+			color: $grey;
+		}
+	}
 }
 
 .inline-form__button {
-	background: $black;
+	background-color: $black;
 	color: $white;
 	font-weight: bold;
     border: 0;
@@ -107,6 +128,15 @@ abbr[title] {
     height: 100%;
     border-radius: 10px;
     font-size: 14px;
+
+	.newsletter & {
+		background-color: $orange;
+
+		@include hover {
+			color: $white;
+			background-color: $black;
+		}
+	}
 }
 
 // Custom checkbox

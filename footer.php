@@ -43,6 +43,9 @@
 				<div class="footer-right footer-item">
 					<h5>Budi u toku</h5>
 					<p>Ovde ostavi svoj e-mail ukoliko među prvima želiš da saznaš o akcijama i specijalnim ponudama. </p>
+					<div class="newsletter">
+						<?php echo do_shortcode('[mc4wp_form id=136]'); ?>
+					</div>
 				</div>
 			</div>
 		</div>
