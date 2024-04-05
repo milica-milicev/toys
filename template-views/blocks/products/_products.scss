@@ -250,7 +250,7 @@
 	@include clamp-font-size(14, 15);
 	color: $grey;
 	font-weight: normal;
-	margin-right: 0;
+	margin-right: 5px;
 }
 
 .product-item__btn {
@@ -313,7 +313,7 @@
 	display: none;
 }
 
-.product__btn {
+.products__btn {
 	margin-top: 20px;
 	text-align: center;
 	width: 100%;
