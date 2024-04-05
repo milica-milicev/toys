@@ -5,14 +5,16 @@
 				<h1 class="section-head__title section-head__title--white">Kontaktirajte nas</h1>
 				<p class="section-head__subtitle section-head__subtitle--white">Igračke možete naručuti preko shop-a, a za sve informacije, sugestije i primedbe možete nam pisati ovde:</p>
 			</div>
-			<form action="action_page.php">
+
+			<?php echo do_shortcode( '[contact-form-7 id="d48bdc1" title="Contact form 1"]' );?>
+			<!-- <form action="action_page.php">
 				<input type="text" id="name" name="name" placeholder="Ime i prezime*">
 				<input type="email" id="email" name="email" placeholder="Email*">
 				<textarea id="subject" name="subject" placeholder="Poruka*" style="height:133px"></textarea>
 				<div class="form-box__btn">
 					<input class="btn btn--white" type="submit" value="Pošaljite">
 				</div>
-			</form>
+			</form> -->
 		</div>
 		<div class="form-box__right">
 			<div class="form-box__right-phone">

@@ -24,6 +24,10 @@
 	border-radius: 10px;
 	overflow: hidden;
 
+	br {
+		display: none;
+	}
+
 	@include mq($md) {
 		display: block;
 		width: calc(100% - 30px);
@@ -43,8 +47,17 @@
 	}
 }
 
+.form-box__btn-wrap {
+	display: flex;
+}
+
 .form-box__btn {
-	text-align: right;
+	margin-left: auto;
+	position: relative;
+
+	.btn {
+		padding: 14px 28px;
+	}
 }
 
 .form-box__right {
