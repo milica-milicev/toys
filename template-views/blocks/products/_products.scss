@@ -224,7 +224,7 @@
 .product-item__price {
 	display: flex;
 	align-items: baseline;
-	margin-top: 7px;
+	margin-bottom: 7px;
 }
 
 .product-item ins {
@@ -254,8 +254,6 @@
 }
 
 .product-item__btn {
-	margin-top: 11px;
-
 	.btn,
 	.button {
 		padding: 13px 20px;

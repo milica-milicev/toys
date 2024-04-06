@@ -1,61 +1,50 @@
 <div class="isolated-product">
 	<div class="container container--sm">
-		<div class="isolated-product__container">
-			<div  class="isolated-product__slider">
-				<div  class="isolated-product__slider-main">
-					<div class="swiper-container isolated-product__main">
-						<div class="swiper-wrapper">
-							<div class="swiper-slide">
-								<img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/_demo/isolated-product-1.png" alt="">
-							</div>
-							<div class="swiper-slide">
-								<img src="https://picsum.photos/seed/slide2/600/300" alt="Slide 02">
-							</div>
-							<div class="swiper-slide">
-								<img src="https://picsum.photos/seed/slide3/600/300" alt="Slide 03">
-							</div>
-							<div class="swiper-slide">
-								<img src="https://picsum.photos/seed/slide4/600/300" alt="Slide 04">
-							</div>
-						</div>
+		<?php
+		$isolated_product = get_field('isolated_product');
+
+		// Proverite da li postoji niz popularnih proizvoda
+		if ($isolated_product) : 
+			$product_sel = $isolated_product['product'];
+			// Proveravamo da li post object postoji
+			if ($product_sel) :
+				global $product;
+				$product_id = $product_sel->ID;
+				$product = wc_get_product($product_id);
+				$product_thumb = get_the_post_thumbnail($product_id, 'shop_catalog');
+				$product_title = get_the_title($product_id);
+				$product_link = get_the_permalink($product_id);
+				$product_price = $product->get_price_html();
+				$short_descr = $product->get_short_description();
+				// main image ID
+				$post_thumbnail_id = $product->get_image_id();
+				// gallery images IDs
+				$attachment_ids = $product->get_gallery_image_ids();
+				?>
+				<div class="isolated-product__container">
+				
+					<div class="product__main-gallery">
+						<?php get_template_part('woocommerce/single-product/product-image' ); ?>
 					</div>
-					<div class="swiper-button-prev"></div>
-					<div class="swiper-button-next"></div>
-				</div>
-				<div class="swiper-container isolated-product__gallery-thumbs">
-					<div class="swiper-wrapper">
-						<div class="isolated-product__gallery-item swiper-slide">
-							<img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/_demo/isolated-product-1.png" alt="">
+					
+					<div class="isolated-product__content">
+						<?php if ($product->is_on_sale()) : ?>
+							<span class="isolated-product__content-tag">Akcija!</span>
+						<?php endif; ?>
+						<h2 class="isolated-product__content-title"><a href="<?php echo $product_link ?>"><?php echo $product_title; ?></a></h2>
+						<div class="isolated__product-price__wrap">
+							<div class="isolated__product-price"><span class="price"><?php echo $product_price; ?></span></div>
+							<div class="isolated__product-btn product-item__btn">
+								<?php woocommerce_template_loop_add_to_cart(); ?>
+							</div>
 						</div>
-						<div class="isolated-product__gallery-item swiper-slide">
-							<img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/_demo/isolated-product-2.png" alt="">
+						<div class="isolated-product__content-desc entry-content">
+							<?php echo wpautop($short_descr); ?>
 						</div>
-						<div class="isolated-product__gallery-item swiper-slide">
-							<img src="https://picsum.photos/seed/slide3/115/100" alt="Slide 03">
-						</div>
-						<div class="isolated-product__gallery-item swiper-slide">
-							<img src="https://picsum.photos/seed/slide4/115/100" alt="Slide 04">
-						</div>
+						<a class="link" href="<?php echo $product_link; ?>">Još informacija</a>
 					</div>
 				</div>
-			</div>
-			<div class="isolated-product__content">
-				<span class="isolated-product__content-tag ">Novo</span>
-				<h3 class="isolated-product__content-title">Projektor za precrtavanje</h3>
-				<div class="isolated__product-price__wrap">
-					<p class="isolated__product-price">Cena: <span>1.500 RSD</span></p>
-					<a class="btn" href="javascript:;">Dodaj u korpu</a>
-				</div>
-				<div class="isolated-product__content-desc">
-					<p>Podržavajući mališane dok prave prve korake, kuca Miška je spremna za akciju! Sa svojim super mekim krznom i plavim očima, kuca Miška će zasigurno otopiti srca mališana i postati odan prijatelj. Deca će je oduševljeno voditi u šetnju, a za još vise zabave, na leđima ima prostora za jahanje i uživanje u vožnji!</p>
-					<b>Uzrast: 12m+</b>
-					<ul>
-						<li>Ova guralica je veličine A4 Visina sedišta: 30 cm (približno)</li>
-						<li>Visina ručke: 50 cm (približno)</li>
-					</ul>
-				</div>
-				<a class="link" href="javascript:;">Još informacija</a>
-			</div>
-		</div>
+			<?php endif; ?>
+		<?php endif; ?>
 	</div>
 </div>

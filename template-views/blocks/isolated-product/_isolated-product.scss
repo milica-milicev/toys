@@ -17,82 +17,6 @@
 	}
 }
 
-.isolated-product__slider {
-	flex: 0 0 50%;
-	max-width: 50%;
-	padding: 0 10px;
-
-	@include mq($sm) {
-		flex: 0 0 100%;
-		max-width: 400px;
-		width: 100%;
-		padding: 0;
-		margin: 0 auto;
-	}
-}
-
-.isolated-product__main {
-	border-radius: 10px;
-	overflow: hidden;
-
-	img {
-		width: 100%;
-	}
-}
-
-.isolated-product__slider-main {
-	position: relative;
-	margin-bottom: 20px;
-
-	.swiper-button {
-		&-prev,
-		&-next {
-			position: absolute;
-			border-radius: 50%;
-			top: 50%;
-			left: 100%;
-			margin-left: -45px;
-			transform: translateY(50%);
-			height: 40px;
-			width: 40px;
-			color: $white;
-			background: $fire-bush;
-			font-weight: bold;
-
-			&::after {
-				font-size: 12px;
-			}
-		}
-
-		&-prev {
-			left: 0;
-			margin-left: 5px;
-		}
-	}
-}
-
-.isolated-product__gallery-thumbs {
-	overflow: hidden;
-
-  .swiper-slide {
-	border-radius: 10px;
-	overflow: hidden;
-
-    img {
-      transition: 0.3s;
-	  width: 100%;
-    }
-
-    &-active {
-      opacity: 0.9;
-    }
-
-    &-thumb-active {
-      opacity: 1;
-    }
-  }
-}
-
 .isolated-product__content {
 	max-width: 50%;
 	flex: 0 0 50%;
@@ -115,7 +39,7 @@
 	background-color: $fire-bush;
 	display: block;
 	width: fit-content;
-	margin-bottom: 5px;
+	margin-bottom: 10px;
 	text-transform: uppercase;
 	@include clamp-font-size(12, 14);
 
@@ -142,38 +66,15 @@
 }
 
 .isolated__product-price {
-	span {
-		@include clamp-font-size(17, 26);
-		font-weight: bold;
-	}
-
 	@include mq($md) {
 		margin-bottom: 10px;
 	}
 }
 
+.isolated__product-btn .added_to_cart {
+	display: none;
+}
+
 .isolated-product__content-desc {
-	p {
-		@include clamp-font-size(13, 16);
-		margin-bottom: 15px;
-	}
-
-	ul {
-		margin: 15px 0;
-
-		// li {
-		// 	position: relative;
-		// 	padding-left: 15px;
-
-		// 	&::before {
-		// 		content: '';
-		// 		display: inline-block;
-		// 		margin-right: 5px;
-		// 		width: 5px;
-		// 		height: 5px;
-		// 		background-color: $black;
-		// 		border-radius: 50px;
-		// 	}
-		// }
-	}
+	margin-bottom: 20px;
 }

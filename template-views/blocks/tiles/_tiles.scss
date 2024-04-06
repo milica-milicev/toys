@@ -102,8 +102,10 @@
 }
 
 .tile-item__title--xl {
-	@include clamp-font-size(28, 32);
-	line-height: 1;
+	@include clamp-font-size(23, 27);
+	line-height: 1.2;
+    max-width: 100px;
+    text-align: center;
 }
 
 .tiles__btn {

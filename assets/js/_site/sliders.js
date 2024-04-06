@@ -7,7 +7,7 @@ const Sliders = {
 		# Initialize
 	-------------------------------------------------------------------------------*/
 	init: function () {
-		var isolatedGalleryThumbs = new Swiper(".isolated-product__gallery-thumbs", {
+		var isolatedGalleryThumbs = new Swiper(".js-isolated-product-gallery-thumbs", {
 			slidesPerView: 3,
 			spaceBetween: 10,
 			// direction: 'vertical',
@@ -19,7 +19,7 @@ const Sliders = {
 			},
 		});
 
-		var isolatedProductMain = new Swiper(".isolated-product__main", {
+		var isolatedProductMain = new Swiper(".js-isolated-product-main", {
 			watchOverflow: true,
 			watchSlidesVisibility: true,
 			watchSlidesProgress: true,

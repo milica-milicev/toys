@@ -25,18 +25,21 @@
 						$product = wc_get_product($product_id);
 						$product_thumb = get_the_post_thumbnail($product_id, 'shop_catalog');
 						$product_title = get_the_title($product_id);
+						$product_link = get_the_permalink($product_id);
 						$product_price = $product->get_price_html();
 						?>
 						<div class="product-item">
 							<div class="product-item__wrap">
 								<div class="product-item__img">
-									<?php echo $product_thumb; ?>
-									<?php if ($product->is_on_sale()) : ?>
-										<span class="product-item__tag product-item__tag--action">Akcija!</span>
-									<?php endif; ?>
+									<a href="<?php echo $product_link ?>">
+										<?php echo $product_thumb; ?>
+										<?php if ($product->is_on_sale()) : ?>
+											<span class="product-item__tag product-item__tag--action">Akcija!</span>
+										<?php endif; ?>
+									</a>
 								</div>
 								<div class="product-item__info">
-									<span class="product-item__name"><?php echo $product_title; ?></span>
+									<h2 class="product-item__name"><a href="<?php echo $product_link ?>"><?php echo $product_title; ?></a></h2>
 									<div class="product-item__price">
 										<?php echo $product_price; ?>
 									</div>
@@ -53,7 +56,7 @@
 			?>
 		</div>
 		<div class="products__btn">
-			<a class="btn btn--sec" href="/igracke">Pogledaj sve igracke</a>
+			<a class="btn btn--sec" href="<?php echo esc_url(get_permalink(wc_get_page_id('shop'))); ?>">Pogledaj sve igracke</a>
 		</div>
 	</div>
 </div>
