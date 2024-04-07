@@ -34,32 +34,29 @@
 	@if $filename == chevron-down {
 		$char: "\E004";
 	}
-	@if $filename == chevron-right {
+	@if $filename == close {
 		$char: "\E005";
 	}
-	@if $filename == close {
+	@if $filename == face {
 		$char: "\E006";
 	}
-	@if $filename == face {
+	@if $filename == filter {
 		$char: "\E007";
 	}
-	@if $filename == filter {
+	@if $filename == insta {
 		$char: "\E008";
 	}
-	@if $filename == insta {
+	@if $filename == mail {
 		$char: "\E009";
 	}
-	@if $filename == mail {
+	@if $filename == phone {
 		$char: "\E00A";
 	}
-	@if $filename == phone {
+	@if $filename == search {
 		$char: "\E00B";
 	}
-	@if $filename == search {
-		$char: "\E00C";
-	}
 	@if $filename == tik_tok {
-		$char: "\E00D";
+		$char: "\E00C";
 	}
 
 	@return $char;
@@ -87,9 +84,6 @@
 }
 .font-chevron-down {
 	@include font(chevron-down);
-}
-.font-chevron-right {
-	@include font(chevron-right);
 }
 .font-close {
 	@include font(close);
