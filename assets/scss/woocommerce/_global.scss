@@ -26,6 +26,12 @@
 
         .button {
             order: 1;
+			color: $white;
+			text-decoration: none;
+
+			@include hover {
+				color: $robin-blue;
+			}
         }
 
 		a {

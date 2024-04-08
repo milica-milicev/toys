@@ -50,6 +50,8 @@ function nm_theme_setup() {
 	register_nav_menus(
 		array(
 			'menu-1' => esc_html__( 'Primary', 'nm_theme' ),
+			'menu-2' => esc_html__( 'Footer Menu 1', 'nm_theme' ),
+			'menu-3' => esc_html__( 'Footer Menu 2', 'nm_theme' ),
 		)
 	);
 
@@ -315,6 +317,90 @@ function filter_products_by_age() {
     wp_reset_postdata();
     die();
 }
+
+
+function perform_search() {
+    // Sanitizacija ključne reči dobijene iz AJAX zahteva
+    $searchTerm = isset($_REQUEST['term']) ? sanitize_text_field($_REQUEST['term']) : '';
+
+    $query_args = array(
+        'post_type' => array('post', 'product'),
+        'posts_per_page' => 5,
+        's' => $searchTerm,
+    );
+
+    $query = new WP_Query($query_args);
+
+    $results = array();
+
+	// Početak bufferinga
+	ob_start();
+
+	if ($query->have_posts()) {
+		$products_html = '';
+		$other_html = '';
+
+		while ($query->have_posts()) : $query->the_post();
+			// Proverite da li je trenutni post proizvod ili standardni post i dobavite odgovarajući thumbnail
+			$thumbnail_url = get_the_post_thumbnail_url(get_the_ID(), 'full');
+			
+			// Ako nema thumbnail-a, koristite placeholder sliku
+			if (empty($thumbnail_url)) {
+				$thumbnail_url = get_stylesheet_directory_uri() . '/assets/images/placeholder.jpg'; // Zamenite sa pravim URL-om vaše placeholder slike
+			}
+
+			// Kreirajte HTML za slike
+			if (get_post_type() === 'product') {
+				// Ako jeste, dodajte ga u products_html
+				$products_html .= '<div class="site-header__search-results-item"><img src="' . esc_url($thumbnail_url) . '" alt="' . get_the_title() . '">';
+				$products_html .= '<h3><a href="' . get_permalink() . '">' . get_the_title() . '</a></h3></div>';
+			} else {
+				// Ako nije, dodajte ga u other_html
+				$other_html .= '<div class="site-header__search-results-item"><img src="' . esc_url($thumbnail_url) . '" alt="' . get_the_title() . '">';
+				$other_html .= '<h3><a href="' . get_permalink() . '">' . get_the_title() . '</a></h3></div>';
+			}
+		endwhile;
+
+		echo '<div class="site-header__search-results-inner">';
+		// Sada kada smo sakupili sve proizvode i ostale postove, možemo da ih prikažemo
+		if (!empty($products_html)) {
+			echo '<span class="site-header__search-results-post-type">Proizvodi</span>' . $products_html;
+		}
+
+		if (!empty($other_html)) {
+			echo '<span class="site-header__search-results-post-type">Ostalo</span>' . $other_html;
+		}
+		echo '</div>';
+
+		// Generisanje URL-a za dugme koje vodi na stranicu sa rezultatima pretrage
+		$search_url = home_url('/') . '?s=' . urlencode($searchTerm);
+		echo '<a href="' . esc_url($search_url) . '" class="btn btn--white">Svi rezultati</a>';
+
+	} else {
+		// Nema pronađenih postova
+		echo '<p class="site-header__search-results-empty">Nema pronađenih rezultata.</p>';
+	}
+
+	// Kraj bufferinga i čišćenje
+	$results['content'] = ob_get_clean();
+
+	// Vraćanje rezultata kao JSON
+	wp_send_json($results);
+
+	// Obavezno zaustavite izvršavanje nakon slanja AJAX odgovora
+	wp_die();
+?>
+
+<?php 
+// Možete sada ispisati $results['content'] gde god je to potrebno
+
+
+}
+add_action('wp_ajax_nopriv_perform_search', 'perform_search');
+add_action('wp_ajax_perform_search', 'perform_search');
+
+
+
 
 /**
  * Cart icon counter in header

@@ -9,6 +9,7 @@ import QtyCounter from './_site/qty-counter';
 import MiniCart from './_site/mini-cart';
 import FiltersToggle from './_site/filters-toggle';
 import AgeRangeSelector from './_site/age-range-selector';
+import QuickSearch from './_site/quick-search';
 
 document.addEventListener('DOMContentLoaded', () => {
 	Sliders.init();
@@ -21,4 +22,5 @@ document.addEventListener('DOMContentLoaded', () => {
 	MiniCart.init();
 	FiltersToggle.init();
 	AgeRangeSelector.init();
+	QuickSearch.init();
 });

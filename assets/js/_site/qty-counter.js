@@ -26,7 +26,10 @@ const QtyCounter = {
                 }
 
                 input.value = inputValue;
-                checkIfCartHasChanged(); // Proveri promene nakon ažuriranja
+
+                if (updateButton) {
+                    checkIfCartHasChanged(); // Proveri promene nakon ažuriranja
+                }
             }
         });
 
@@ -39,16 +42,21 @@ const QtyCounter = {
                 if (inputValue < 1) {
                     input.value = 1;
                 }
-                checkIfCartHasChanged(); // Proveri promene nakon manuelne promene
+
+                if (updateButton) {
+                    checkIfCartHasChanged(); // Proveri promene nakon manuelne promene
+                }
             }
         });
 
-        // Opciono: Možete dodati ovaj deo ako želite da proverite promene kada korisnik koristi tastaturu za promenu količine
-        document.body.addEventListener('keyup', function(e) {
-            if (e.target.classList.contains('js-qty-field') || e.target.classList.contains('qty')) {
-                checkIfCartHasChanged(); // Proveri promene nakon unos preko tastature
-            }
-        });
+        if (updateButton) {
+            // Opciono: Možete dodati ovaj deo ako želite da proverite promene kada korisnik koristi tastaturu za promenu količine
+            document.body.addEventListener('keyup', function(e) {
+                if (e.target.classList.contains('js-qty-field') || e.target.classList.contains('qty')) {
+                    checkIfCartHasChanged(); // Proveri promene nakon unos preko tastature
+                }
+            });
+        }
     }
 };
 

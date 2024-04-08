@@ -17,7 +17,7 @@
  
 			 get_template_part( 'template-views/blocks/hero/hero-alt-post' ); ?>
  
-			 <div class="container container--sm">
+			 <div class="container container--xs">
 			 	<?php get_template_part( 'template-views/blocks/single-post/single-post' ); ?>
 			</div>
 		 <?php endwhile; // End of the loop.

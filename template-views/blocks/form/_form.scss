@@ -78,43 +78,56 @@
 .form-box__right-phone,
 .form-box__right-email,
 .form-box__right-media {
-	width: 220px;
-	margin: 0 auto;
-} 
-
-.form-box__right-phone {
 	display: flex;
 	align-items: center;
 	grid-gap: 15px;
 	margin-bottom: 20px;
 }
 
-.form-box__right-phone-number {
+.form-box__right-icon {
+	background-color: $black;
+	border-radius: 5px;
+	width: 40px;
+	height: 40px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: $white;
+}
+
+.form-box__right-phone-number,
+.form-box__right-email {
 	a {
 		display: block;
+		transition: $dur $ease;
+
+		@include hover {
+			color: $fire-bush;
+		}
 	}
 }
 
-.form-box__right-email,
 .form-box__right-media {
-	display: flex;
-	align-items: center;
-	grid-gap: 15px;
-}
+	margin-bottom: 0;
 
-.form-box__right-email {
-	margin-bottom: 30px;
-}
+	a {
+		transition: $dur $ease;
+		width: 35px;
+		height: 35px;
+		border-radius: 50%;
+		background-color: $white;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		font-size: 13px;
+		color: $black;
+		border: 1px solid $black;
 
-.form-box__right-media-instagram {
-	@include font(insta);
-}
-
-.form-box__right-media-facebook {
-	@include font(face);
-}
-
-.form-box__right-media-tik-tok {
-	@include font(tik_tok);
+		@include hover {
+			background-color: $fire-bush;
+			border-color: $fire-bush;
+			color: $white;
+		}
+	}
 }
 

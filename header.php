@@ -73,6 +73,8 @@
 			<div class="site-header__search js-search-form">
 				<?php get_search_form(); ?>
 				<button class="site-header__search-close-btn js-close-search"><span class="font-close"></span></button>
+				<div class="site-header__search-results js-search-results"></div>
+				<div class="site-header__search-results-loader js-search-loader">Učitavaju se rezultati...</div>
 			</div>
 		</div>
 	</header>

@@ -162,6 +162,11 @@
 		font-weight: bold;
 	}
 
+	.woocommerce-Price-currencySymbol {
+		font-weight: inherit;
+		font-size: inherit;
+	}
+
 	@include mq($md) {
 		margin-bottom: 10px;
 	}
@@ -174,6 +179,7 @@
 
 .price ins {
 	background-color: transparent;
+	display: inline-block;
 }
 
 .price .woocommerce-Price-amount,
@@ -184,6 +190,7 @@
 
 .price del {
 	color: $grey;
+	display: inline-block;
 }
 
 .price del .woocommerce-Price-amount,
