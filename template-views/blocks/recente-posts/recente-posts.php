@@ -50,7 +50,7 @@ $query = new WP_Query($args);
 		endif;
 		?>
 		<div class="recente-posts__btn">
-			<a class="btn btn--sec" href="<?php echo get_permalink(get_option('page_for_posts')); ?>">Pogledaj naš ceo blog</a>
+			<a class="btn btn--sec" href="<?php echo esc_url( home_url( '/' ) ); ?>blog">Pogledaj naš ceo blog</a>
 		</div>
 	</div>
 </div>

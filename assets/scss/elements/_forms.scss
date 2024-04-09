@@ -224,19 +224,30 @@ abbr[title] {
 	top: calc(100% - 20px);
 }
 
-.wpcf7 form.invalid .wpcf7-response-output,
-.wpcf7 form.unaccepted .wpcf7-response-output,
-.wpcf7 form.payment-required .wpcf7-response-output,
-.wpcf7 form.failed .wpcf7-response-output,
-.wpcf7 form.aborted .wpcf7-response-output {
+.wpcf7 form .wpcf7-response-output {
 	background-color: $white;
 	font-size: 13px;
     padding: 10px;
     margin: 15px 0 0;
 	border-radius: 10px;
-	border: 1px solid $red;
-	color: $red;
+	border: 1px solid $white;
+	color: $black;
 	text-align: center;
+	font-weight: bold;
+}
+
+.wpcf7 form.invalid .wpcf7-response-output,
+.wpcf7 form.unaccepted .wpcf7-response-output,
+.wpcf7 form.payment-required .wpcf7-response-output,
+.wpcf7 form.failed .wpcf7-response-output,
+.wpcf7 form.aborted .wpcf7-response-output {
+	border-color: $red;
+	color: $red;
+}
+
+.wpcf7 form.sent .wpcf7-response-output {
+	border-color: $white;
+	color: $black;
 }
 
 .wpcf7-spinner {

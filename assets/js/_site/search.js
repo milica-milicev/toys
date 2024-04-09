@@ -11,6 +11,7 @@ const Search = {
 		const searchFormCloseBtn = document.querySelector('.js-close-search');
 		const navigation = document.querySelector('.js-navigation');
 		const menuBtn = document.querySelector('.js-menu-btn');
+		const resultsDiv = document.querySelector(".js-search-results");
 		
 		if (searchForm) {
 			searchBtn.addEventListener('click', function(e) {
@@ -21,6 +22,10 @@ const Search = {
 				searchFormInput.value = '';
 				navigation.classList.remove('is-active');
 				menuBtn.classList.remove('is-active');
+
+				if (e.target.classList.contains('is-active')) {
+					resultsDiv.innerHTML = '';
+				}
 			});
 
 			searchFormCloseBtn.addEventListener('click', function(e) {
@@ -28,6 +33,7 @@ const Search = {
 				this.classList.remove('is-active');
 				searchForm.classList.remove('is-active');
 				searchFormInput.value = '';
+				resultsDiv.innerHTML = '';
 			});
 		}
 	}

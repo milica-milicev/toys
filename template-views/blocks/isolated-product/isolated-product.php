@@ -1,5 +1,8 @@
 <div class="isolated-product">
 	<div class="container container--sm">
+		<?php //if ($product->is_on_sale()) : ?>
+			<span class="isolated-product__content-tag">Igračka nedelje</span>
+		<?php //endif; ?>
 		<?php
 		$isolated_product = get_field('isolated_product');
 
@@ -28,9 +31,7 @@
 					</div>
 					
 					<div class="isolated-product__content">
-						<?php if ($product->is_on_sale()) : ?>
-							<span class="isolated-product__content-tag">Akcija!</span>
-						<?php endif; ?>
+						
 						<h2 class="isolated-product__content-title"><a href="<?php echo $product_link ?>"><?php echo $product_title; ?></a></h2>
 						<div class="isolated__product-price__wrap">
 							<div class="isolated__product-price"><span class="price"><?php echo $product_price; ?></span></div>

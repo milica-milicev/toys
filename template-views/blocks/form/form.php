@@ -18,7 +18,7 @@
 			</div>
 			<div class="form-box__right-email">
 				<span class="form-box__right-icon font-mail"></span>
-				<a href="mailto:podrska@svetigranja.rs">podrska@svetigranja.rs</a>
+				<a href="mailto:podrska@svetigranja.rs">info@svetigranja.rs</a>
 			</div>
 			<div class="form-box__right-media">
 				<a class="font-face" href="javascript:;"></a>

@@ -2,7 +2,7 @@
 	padding: 60px 0;
 
 	@include mq($xs) {
-        padding: 45px 0;
+        padding: 30px 0;
     }
 }
 
@@ -12,7 +12,8 @@
 	margin: 0 -10px;
 
 	@include mq($sm) {
-		flex-direction: column-reverse;
+		// flex-direction: column-reverse;
+		display: block;
 		margin: 0;
 	}
 }
@@ -26,8 +27,6 @@
 		flex: 0 0 100%;
 		max-width: 100%;
 		padding: 0;
-		margin-bottom: 30px;
-		text-align: center;
 	}
 }
 
@@ -39,12 +38,12 @@
 	background-color: $fire-bush;
 	display: block;
 	width: fit-content;
-	margin-bottom: 10px;
+	margin: 0 auto 30px;
 	text-transform: uppercase;
 	@include clamp-font-size(12, 14);
 
 	@include mq($sm) {
-		margin: 0 auto 5px;
+		margin: 0 auto 15px;
 	}
 }
 
@@ -52,6 +51,10 @@
 	@include clamp-font-size(18, 28);
 	font-weight: bold;
 	margin-bottom: 17px;
+
+	@include mq($sm) {
+		margin-bottom: 10px;
+	}
 }
 
 .isolated__product-price__wrap {
