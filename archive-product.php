@@ -184,6 +184,22 @@ do_action( 'woocommerce_before_main_content' );
 						do_action( 'woocommerce_no_products_found' );
 					}
 				?>
+				
+				<?php
+				if ( is_product_category() ) :
+					$queried_object = get_queried_object();
+					$category_id = $queried_object->term_id;
+					$full_category_desc = get_field('full_category_desc', 'product_cat_' . $category_id);
+
+					if ( $full_category_desc ) : ?>
+						<div class="products__full-descr">
+							<div class="entry-content">
+								<?php echo wp_kses_post( $full_category_desc ); // Prikaži sadržaj ACF polja, osiguravajući da je tekst bezbedan za prikazivanje ?>
+							</div>
+						</div>
+					<?php endif;
+				endif;
+				?>
 			</div>
 		</div>
 	</div>

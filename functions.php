@@ -52,6 +52,7 @@ function nm_theme_setup() {
 			'menu-1' => esc_html__( 'Primary', 'nm_theme' ),
 			'menu-2' => esc_html__( 'Footer Menu 1', 'nm_theme' ),
 			'menu-3' => esc_html__( 'Footer Menu 2', 'nm_theme' ),
+			'menu-4' => esc_html__( 'Header Top Menu', 'nm_theme' ),
 		)
 	);
 

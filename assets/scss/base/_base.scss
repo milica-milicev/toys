@@ -37,9 +37,5 @@ html {
 }
 
 .site {
-	padding-top: 91px;
-
-	@include mq($md) {
-		padding-top: 81px;
-	}
+	padding-top: 101px;
 }
