@@ -75,7 +75,20 @@
 	justify-content: flex-end;
 
 	li {
-		margin-left: 15px;
+		margin-left: 8px;
+
+		&::after {
+			content: '/';
+			margin-left: 8px;
+			color: $white;
+		}
+
+		&:last-of-type {
+			&::after {
+				content: '';
+				margin-left: 0;
+			}
+		}
 	}
 
 	a {
@@ -90,10 +103,6 @@
 
 	@include mq($sm) {
 		justify-content: center;
-
-		li {
-			margin: 0 5px;
-		}
 	}
 }
 
