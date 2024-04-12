@@ -62,6 +62,9 @@
 			</div>
 		</div>
 	</footer><!-- #colophon -->
+
+	<button class="back-to-top-btn js-back-to-top-btn font-arrow-top"></button>
+
 </div><!-- #page -->
 
 <?php wp_footer(); ?>

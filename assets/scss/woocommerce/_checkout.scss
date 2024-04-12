@@ -54,18 +54,8 @@
     display: flex;
     flex-wrap: wrap;
 
-    .form-row-first {
-        max-width: 50%;
-        flex: 0 0 50%;
-        padding-right: 10px;
-    }
-
-    .form-row-last {
-        max-width: 50%;
-        flex: 0 0 50%;
-        padding-left: 10px;
-    }
-
+    .form-row-first,
+    .form-row-last,
     .form-row-wide {
         max-width: 100%;
         flex: 0 0 100%;
@@ -73,18 +63,6 @@
 
     @include mq($sm) {
 		display: block;
-
-        .form-row-first {
-            max-width: 100%;
-            flex: 0 0 100%;
-            padding-right: 0;
-        }
-
-        .form-row-last {
-            max-width: 100%;
-            flex: 0 0 100%;
-            padding-left: 0;
-        }
 	}
 }
 
@@ -150,6 +128,18 @@
 .checkout__terms,
 .checkout__privacy {
     margin-bottom: 20px;
+}
+
+.checkout__privacy {
+    a {
+        color: $orange;
+        text-decoration: underline;
+        transition: $dur $ease;
+
+        @include hover {
+            color: $black;
+        }
+    }
 }
 
 .checkout__payment-method {

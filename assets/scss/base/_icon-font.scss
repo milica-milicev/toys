@@ -25,38 +25,41 @@
 	@if $filename == arrow-right {
 		$char: "\E001";
 	}
-	@if $filename == cart {
+	@if $filename == arrow-top {
 		$char: "\E002";
 	}
-	@if $filename == checkmark {
+	@if $filename == cart {
 		$char: "\E003";
 	}
-	@if $filename == chevron-down {
+	@if $filename == checkmark {
 		$char: "\E004";
 	}
-	@if $filename == close {
+	@if $filename == chevron-down {
 		$char: "\E005";
 	}
-	@if $filename == face {
+	@if $filename == close {
 		$char: "\E006";
 	}
-	@if $filename == filter {
+	@if $filename == face {
 		$char: "\E007";
 	}
-	@if $filename == insta {
+	@if $filename == filter {
 		$char: "\E008";
 	}
-	@if $filename == mail {
+	@if $filename == insta {
 		$char: "\E009";
 	}
-	@if $filename == phone {
+	@if $filename == mail {
 		$char: "\E00A";
 	}
-	@if $filename == search {
+	@if $filename == phone {
 		$char: "\E00B";
 	}
-	@if $filename == tik_tok {
+	@if $filename == search {
 		$char: "\E00C";
+	}
+	@if $filename == tik_tok {
+		$char: "\E00D";
 	}
 
 	@return $char;
@@ -75,6 +78,9 @@
 
 .font-arrow-right {
 	@include font(arrow-right);
+}
+.font-arrow-top {
+	@include font(arrow-top);
 }
 .font-cart {
 	@include font(cart);

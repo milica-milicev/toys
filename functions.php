@@ -245,11 +245,20 @@ function new_loop_shop_per_page( $cols ) {
  */
 add_filter( 'woocommerce_checkout_fields' , 'custom_override_checkout_fields' );
 function custom_override_checkout_fields( $fields ) {
+	unset($fields['billing']['billing_last_name']); // Uklanjanje polja za prezime
     unset($fields['billing']['billing_country']);
 	unset($fields['billing']['billing_state']); // Za polja računa (billing)
     unset($fields['shipping']['shipping_state']); // Za polja dostave (shipping) ako je potrebno
+
+	// Promena oznake za polje imena
+    $fields['billing']['billing_first_name']['label'] = 'Ime i Prezime';
+
+	// Uklanjanje placeholdera za polje adrese
+    $fields['billing']['billing_address_1']['placeholder'] = '';
+
     return $fields;
 }
+
 
 /**
  * Filter Products

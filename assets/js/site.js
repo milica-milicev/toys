@@ -10,6 +10,7 @@ import MiniCart from './_site/mini-cart';
 import FiltersToggle from './_site/filters-toggle';
 import AgeRangeSelector from './_site/age-range-selector';
 import QuickSearch from './_site/quick-search';
+import BackToTop from './_site/back-to-top';
 
 document.addEventListener('DOMContentLoaded', () => {
 	Sliders.init();
@@ -23,4 +24,5 @@ document.addEventListener('DOMContentLoaded', () => {
 	FiltersToggle.init();
 	AgeRangeSelector.init();
 	QuickSearch.init();
+	BackToTop.init();
 });
