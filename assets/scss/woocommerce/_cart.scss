@@ -177,7 +177,11 @@
 }
 
 .cart__order-checkout-btn {
-    text-align: right;
+    .button {
+        width: 100%;
+        font-size: 16px;
+        text-align: center;
+    }
 }
 
 /*--------------------------------------------------------------

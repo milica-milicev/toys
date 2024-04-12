@@ -65,6 +65,17 @@
 
 	<button class="back-to-top-btn js-back-to-top-btn font-arrow-top"></button>
 
+	<!-- Obavestenje o kolačićima -->
+	<div class="cookies js-cookies">
+		<div class="container container--xs">
+			<div class="cookies__title">Ova web-stranica koristi kolačiće</div> 
+			<div class="cookies__content">
+				<div class="cookies__text">Poštovani korisniče, naš sajt koristi cookies (kolačiće) u cilju poboljšanja korisničkog iskustva. Ukoliko nastavite da pregledate i koristite našu Internet prodavnicu slažete se sa upotrebom kolačića.</div>
+				<span class="cookies__btn btn btn--gold js-cookies-accept-btn">Slažem se</span>			
+			</div>  
+		</div>
+	</div>
+
 </div><!-- #page -->
 
 <?php wp_footer(); ?>

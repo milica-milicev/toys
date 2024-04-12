@@ -3,6 +3,8 @@
 --------------------------------------------------------------*/
 .product__main {
     padding: 20px 0;
+	max-width: 100%;
+	overflow-x: hidden;
 
 	@include mq($md) {
 		padding: 15px 0;

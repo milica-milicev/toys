@@ -39,6 +39,17 @@
 	}
 }
 
+.btn--gold {
+	background-color: $fire-bush;
+	color: $white;
+	border: 0;
+
+	@include hover {
+		color: $white;
+		background-color: $black;
+	}
+}
+
 .btn--white {
 	background-color: $white;
 	color: $black;

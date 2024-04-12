@@ -11,6 +11,7 @@ import FiltersToggle from './_site/filters-toggle';
 import AgeRangeSelector from './_site/age-range-selector';
 import QuickSearch from './_site/quick-search';
 import BackToTop from './_site/back-to-top';
+import Cookies from './_site/cookies';
 
 document.addEventListener('DOMContentLoaded', () => {
 	Sliders.init();
@@ -25,4 +26,5 @@ document.addEventListener('DOMContentLoaded', () => {
 	AgeRangeSelector.init();
 	QuickSearch.init();
 	BackToTop.init();
+	Cookies.init();
 });

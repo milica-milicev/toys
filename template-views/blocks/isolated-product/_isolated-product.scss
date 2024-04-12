@@ -1,5 +1,7 @@
 .isolated-product {
 	padding: 60px 0;
+	max-width: 100%;
+	overflow-x: hidden;
 
 	@include mq($xs) {
         padding: 30px 0;

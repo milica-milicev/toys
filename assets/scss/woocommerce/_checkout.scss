@@ -77,13 +77,15 @@
 }
 
 .checkout__product-thumbnail {
-    width: 60px;
-    padding-right: 10px;
+    width: 50px;
+    margin-right: 10px;
+    border-radius: 10px;
+    overflow: hidden;
 }
 
 .checkout__product-name {
     flex: 1;
-    padding-right: 10px;
+    margin-right: 10px;
 }
 
 .checkout__product-total {
@@ -153,7 +155,11 @@
 }
 
 .checkout__order-checkout-btn {
-    text-align: right;
+    .button {
+        width: 100%;
+        font-size: 16px;
+        text-align: center;
+    }
 }
 
 .checkout__verify {

@@ -1,0 +1,62 @@
+.cookies {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background: $white;
+    padding: 10px 0;
+    border-top: 1px solid $white-smoke;
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transition: $dur $ease;
+    cursor: pointer;
+
+    &.is-visible {
+        opacity: 1;
+        visibility: visible;
+    }
+}
+
+.cookies__title {
+    font-weight: bold;
+    font-size: 13px;
+    margin-bottom: 6px;
+
+    @include mq($sm) {
+		font-size: 12px;
+	}
+}
+
+.cookies__content {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+
+    @include mq($sm) {
+		display: block;
+	}
+}
+
+.cookies__text {
+    font-size: 12px;
+    line-height: 1.2;
+    flex: 1;
+    padding-right: 10px;
+
+    @include mq($sm) {
+		margin-bottom: 5px;
+        padding-right: 0;
+        font-size: 11px;
+	}
+}
+
+.cookies__btn {
+    flex-shrink: 0;
+    padding: 13px 17px;
+
+    @include mq($sm) {
+		margin-left: auto;
+        display: block;
+        padding: 10px 15px;
+	}
+}
