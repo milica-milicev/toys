@@ -82,6 +82,10 @@
     &:last-of-type {
         border-bottom: none;
     }
+
+    .shipped_via {
+        display: none;
+    }
 }
 
 .order-details__item--note {

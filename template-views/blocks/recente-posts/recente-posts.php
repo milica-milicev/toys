@@ -31,7 +31,7 @@ $query = new WP_Query($args);
 					<div class="recente-post__item">
 						<a href="<?php echo $link; ?>">
 							<div class="recente-post__item-image">
-								<img src="<?php echo $thumbnail_url; ?>" alt="">
+								<img class="lazy" src="<?php echo $thumbnail_url; ?>" alt="">
 								<!-- <span class="recente-post__item-image-tag">Edukacija</span> -->
 							</div>
 							<h4 class="recente-post__item-title"><?php echo $title; ?></h4>

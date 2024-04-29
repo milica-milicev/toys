@@ -61,6 +61,10 @@
         flex: 0 0 100%;
     }
 
+    #billing_country_field {
+        display: none;
+    }
+
     @include mq($sm) {
 		display: block;
 	}

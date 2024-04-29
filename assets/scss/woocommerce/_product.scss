@@ -2,12 +2,12 @@
 # Product page
 --------------------------------------------------------------*/
 .product__main {
-    padding: 20px 0;
+    margin-bottom: 20px;
 	max-width: 100%;
 	overflow-x: hidden;
 
 	@include mq($md) {
-		padding: 15px 0;
+		margin-bottom: 15px;
 	}
 }
 
@@ -102,20 +102,20 @@
 .product__gallery-main-slider-img,
 .product__gallery-main-thumbs-img,
 .product__gallery-main-img {
-    border-radius: 10px;
-    overflow: hidden;
-
     img {
-        width: 100%;
+        width: auto;
+		margin: 0 auto;
 		max-height: 400px;
-		object-fit: cover;
+		object-fit: contain;
+    	object-position: center;
+		border-radius: 10px;
+    	overflow: hidden;
     }
 
 	@include mq($sm) {
         img {
 			width: 100%;
 			max-height: 300px;
-			object-fit: cover;
 		}
     }
 }

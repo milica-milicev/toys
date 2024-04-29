@@ -23,11 +23,11 @@
                             <a href="<?php the_permalink(); ?>">
                                 <?php
                                 if (has_post_thumbnail()) {
-                                    the_post_thumbnail('medium');
+                                    the_post_thumbnail('large', array('class' => 'lazy'));
                                 } else {
                                     // Putanja do vaše placeholder slike za standardne postove
                                     $placeholder_url = get_stylesheet_directory_uri() . '/assets/images/placeholder.jpg';
-                                    echo '<img src="' . esc_url($placeholder_url) . '" alt="Placeholder" />';
+                                    echo '<img class="lazy" src="' . esc_url($placeholder_url) . '" alt="Placeholder" />';
                                 }
                                 ?>
                             </a>

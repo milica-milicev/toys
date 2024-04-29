@@ -64,13 +64,13 @@ defined( 'ABSPATH' ) || exit;
 	<?php endforeach; ?>
 
 	<?php if ( WC()->cart->needs_shipping() && WC()->cart->show_shipping() ) : ?>
+		<div class="checkout__totals-item">
+			<?php do_action( 'woocommerce_review_order_before_shipping' ); ?>
 
-		<?php do_action( 'woocommerce_review_order_before_shipping' ); ?>
+			<?php wc_cart_totals_shipping_html(); ?>
 
-		<?php wc_cart_totals_shipping_html(); ?>
-
-		<?php do_action( 'woocommerce_review_order_after_shipping' ); ?>
-
+			<?php do_action( 'woocommerce_review_order_after_shipping' ); ?>
+		</div>
 	<?php endif; ?>
 
 	<?php foreach ( WC()->cart->get_fees() as $fee ) : ?>

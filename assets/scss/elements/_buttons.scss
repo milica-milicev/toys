@@ -62,7 +62,7 @@
 }
 
 .link {
-	color: $orange;
+	color: $robin-blue;
 	font-weight: bold;
 	@include clamp-font-size(14, 16);
 	transition: $dur $ease;

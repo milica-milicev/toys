@@ -12,7 +12,7 @@
 						$image_url = get_stylesheet_directory_uri() . '/assets/images/placeholder.jpg';
 					}
 
-					echo '<img src="' . esc_url($image_url) . '" alt="' . get_the_title() . '">';
+					echo '<img class="lazy" src="' . esc_url($image_url) . '" alt="' . get_the_title() . '">';
 
 				} else { // Za standardne postove koji nisu proizvodi
 					if (has_post_thumbnail()) {
@@ -20,7 +20,7 @@
 					} else {
 						// Putanja do vaše placeholder slike za standardne postove
 						$placeholder_url = get_stylesheet_directory_uri() . '/assets/images/placeholder.jpg';
-						echo '<img src="' . esc_url($placeholder_url) . '" alt="Placeholder" />';
+						echo '<img class="lazy" src="' . esc_url($placeholder_url) . '" alt="Placeholder" />';
 					}
 				}
 			?>

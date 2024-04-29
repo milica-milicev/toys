@@ -39,13 +39,13 @@ defined( 'ABSPATH' ) || exit;
 		<?php endforeach; ?>
 
 		<?php if ( WC()->cart->needs_shipping() && WC()->cart->show_shipping() ) : ?>
+			<div class="checkout__totals-item">
+				<?php do_action( 'woocommerce_cart_totals_before_shipping' ); ?>
 
-			<?php do_action( 'woocommerce_cart_totals_before_shipping' ); ?>
+				<?php wc_cart_totals_shipping_html(); ?>
 
-			<?php wc_cart_totals_shipping_html(); ?>
-
-			<?php do_action( 'woocommerce_cart_totals_after_shipping' ); ?>
-
+				<?php do_action( 'woocommerce_cart_totals_after_shipping' ); ?>
+			</div>
 		<?php elseif ( WC()->cart->needs_shipping() && 'yes' === get_option( 'woocommerce_enable_shipping_calc' ) ) : ?>
 
 			<div class="shipping cart__totals-item">

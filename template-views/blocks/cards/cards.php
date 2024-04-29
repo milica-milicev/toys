@@ -43,7 +43,7 @@
 							<a href="<?php echo $term_link; ?>">
 								<div class="card-item__wrap" style="<?php echo $background ; ?>">
 									<?php if ($background_img === 'corner_img') : ?>
-										<img class="card-item__img" src="<?php echo $image; ?>" alt="">
+										<img class="card-item__img lazy" src="<?php echo $image; ?>" alt="">
 									<?php endif; ?>
 									<p class="card-item__pretitle card-item__pretitle--<?php echo $card_theme; ?>"><?php echo $short_desc; ?></p>
 									<h3 class="card-item__title card-item__title--<?php echo $card_theme; ?>"><?php echo $term_name; ?></h3>

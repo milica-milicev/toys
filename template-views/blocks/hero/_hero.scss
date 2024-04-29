@@ -25,32 +25,38 @@
 	display: flex;
 	justify-content: space-between;
 
-	@include mq($md) {
+	@include mq($lg) {
        display: block;
     }
 }
 
 .hero__content {
 	flex: 0 0 50%;
-	max-width: 470px;
 	padding: 60px 0;
 	align-self: center;
 
-	@include mq($md) {
+	@include mq($lg) {
 	   flex: 0 0 100%;
 	   text-align: center;
 	   padding: 10px 0;
-	   max-width: 400px;
 	   margin: 0 auto;
     }
 }
 
+.hero__content--lg {
+	max-width: 470px;
+
+	@include mq($lg) {
+		max-width: 400px;
+	 }
+}
+
 .hero__content--sm {
-	padding: 20px 0;
+	padding: 10px 0;
 	flex: 0 0 100%;
 	max-width: 100%;
 
-	@include mq($md) {
+	@include mq($lg) {
 		max-width: 100%;
 	}
 }
@@ -86,10 +92,17 @@
 
 .hero__main-img {
 	position: relative;
+	flex: 0 0 50%;
+	max-width: 50%;
 	align-self: flex-end;
 
-	@include mq($md) {
-		max-width: 450px;
+	img {
+		margin: 0 auto;
+	}
+
+	@include mq($lg) {
+		flex: 0 0 100%;
+		max-width: 350px;
 		margin: 0 auto;
 	}
 }

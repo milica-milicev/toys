@@ -246,7 +246,7 @@ function new_loop_shop_per_page( $cols ) {
 add_filter( 'woocommerce_checkout_fields' , 'custom_override_checkout_fields' );
 function custom_override_checkout_fields( $fields ) {
 	unset($fields['billing']['billing_last_name']); // Uklanjanje polja za prezime
-    unset($fields['billing']['billing_country']);
+    // unset($fields['billing']['billing_country']);
 	unset($fields['billing']['billing_state']); // Za polja računa (billing)
     unset($fields['shipping']['shipping_state']); // Za polja dostave (shipping) ako je potrebno
 
@@ -258,7 +258,6 @@ function custom_override_checkout_fields( $fields ) {
 
     return $fields;
 }
-
 
 /**
  * Filter Products
@@ -442,4 +441,29 @@ function add_custom_mini_cart() {
         <?php woocommerce_mini_cart(); ?>
     </div>
     <?php
+}
+
+// Hide shipping when free delivery is available
+add_filter( 'woocommerce_package_rates', 'hide_shipping_when_free_is_available', 10, 2 );
+
+function hide_shipping_when_free_is_available( $rates, $package ) {
+    // Proverite da li besplatna dostava postoji
+    $free_shipping = false;
+
+    foreach ( $rates as $rate_id => $rate ) {
+        if ( 'free_shipping' === $rate->method_id ) {
+            $free_shipping = true;
+            break;
+        }
+    }
+
+    if ( $free_shipping ) {
+        foreach ( $rates as $rate_id => $rate ) {
+            if ( 'flat_rate' === $rate->method_id ) {
+                unset( $rates[$rate_id] );
+            }
+        }
+    }
+
+    return $rates;
 }

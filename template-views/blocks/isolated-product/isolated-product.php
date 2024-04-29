@@ -14,7 +14,7 @@
 				global $product;
 				$product_id = $product_sel->ID;
 				$product = wc_get_product($product_id);
-				$product_thumb = get_the_post_thumbnail($product_id, 'shop_catalog');
+				$product_thumb = get_the_post_thumbnail($product_id, 'shop_catalog lazy');
 				$product_title = get_the_title($product_id);
 				$product_link = get_the_permalink($product_id);
 				$product_price = $product->get_price_html();
