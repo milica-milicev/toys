@@ -153,7 +153,9 @@ function nm_theme_scripts() {
 	} else {
 		$current_category_slug = '';
 	}
-	wp_enqueue_style( 'nm_theme-style', get_stylesheet_uri(), array(), _S_VERSION );
+	// wp_enqueue_style( 'nm_theme-style', get_stylesheet_uri(), array(), _S_VERSION );
+
+	wp_enqueue_style( 'nm_theme-style', get_template_directory_uri() . '/style.min.css', _S_VERSION );
 
 	wp_enqueue_script( 'nm_theme-script', get_template_directory_uri() . '/dist/site.min.js', _S_VERSION, true );
 

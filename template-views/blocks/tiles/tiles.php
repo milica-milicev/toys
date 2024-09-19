@@ -1,8 +1,8 @@
 <div class="tiles">
 	<div class="container">
 		<div class="section-head">
-			<h2 class="section-head__title">Veliki izbor igračaka za sve uzraste</h2>
-			<p class="section-head__subtitle">Pronađite baš ono što je prilagođeno polu i uzrastu deteta</p>
+			<h2 class="section-head__title">Zavoli igru, uči kroz maštu!</h2>
+			<p class="section-head__subtitle">Pronađite igračke koje donose radost, podstiču kreativnost i uče vaše mališane kroz igru.</p>
 		</div>
 		<div class="tiles__container">
 			<?php
